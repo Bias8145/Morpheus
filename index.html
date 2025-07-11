@@ -45,7 +45,7 @@
             --hamburger-bg: rgba(122, 90, 98, 0.85);
             --card-border: transparent;
             --contact-bg: rgba(58, 46, 43, 0.9);
-            --shadow-color: rgba(255, 245, 245, 0.9); /* Glow halus untuk dark mode */
+            --shadow-color: rgba(255, 265, 265, 0.1); /* Subtle glow for dark mode */
             --border-gradient: linear-gradient(45deg, #7A5A62, #8A6A72);
         }
 
@@ -1203,7 +1203,7 @@
             }
         }
 
-        // Animasi Bouncy saat Klik
+        // Bouncy Animation on Click
         document.querySelectorAll('.bouncy').forEach(element => {
             element.addEventListener('click', () => {
                 element.style.animation = 'bounce 0.3s ease';
