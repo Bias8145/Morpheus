@@ -313,26 +313,6 @@
             color: var(--text-light);
         }
 
-        .sidebar-item::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            top: 50%;
-            left: calc(100% + 10px);
-            transform: translateY(-50%);
-            background: var(--tooltip-bg);
-            color: var(--tooltip-text);
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1000;
-            max-width: 200px;
-            text-align: center;
-        }
-
         .sidebar-item:hover::after {
             opacity: 1;
             visibility: visible;
