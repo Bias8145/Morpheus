@@ -96,20 +96,20 @@
             width: 60px;
             height: 60px;
             position: relative;
-            animation: spin 2s ease infinite;
+            animation: spin 10s ease infinite; /* Durasi 10 detik */
         }
 
         .dot {
             position: absolute;
             width: 12px;
             height: 12px;
-            background: var(--accent-color);
+            background: var(--accent-color); /* Warna tunggal */
             border-radius: 50%;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            animation: dot-move 2s ease-in-out infinite;
-            animation-delay: calc(var(--i) * 0.2s);
+            animation: dot-move 10s ease-in-out infinite;
+            animation-delay: calc(var(--i) * 0.5s);
         }
 
         @keyframes spin {
@@ -355,25 +355,32 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            z-index: 1; /* Pastikan konten di atas animasi */
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: -25%;
-            left: -25%;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(245, 230, 235, 0.2) 0%, transparent 70%);
-            filter: blur(10px);
-            animation: rotate 12s ease infinite;
-            transform-origin: center;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(245, 230, 235, 0.1) 50%,
+                transparent 100%
+            ); /* Gradien horizontal transparan */
+            filter: blur(10px); /* Efek buram untuk kehalusan */
+            animation: gradient-shift 6s ease-in-out infinite; /* Efek kilauan dinamis */
             pointer-events: none;
+            z-index: 0; /* Di bawah konten hero */
         }
 
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes gradient-shift {
+            0% { transform: translateX(-20%); opacity: 0.4; }
+            50% { transform: translateX(20%); opacity: 0.8; }
+            100% { transform: translateX(-20%); opacity: 0.4; }
         }
 
         @keyframes fadeInUp {
@@ -387,6 +394,8 @@
             font-weight: 800;
             letter-spacing: 0.02em;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-subtitle {
@@ -394,6 +403,8 @@
             font-size: 1.4rem;
             font-weight: 400;
             margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
         }
 
         .developers, .rom-info, .rating-section {
@@ -401,6 +412,8 @@
             transform: translateY(20px);
             animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
             animation-delay: 0.2s;
+            position: relative;
+            z-index: 1;
         }
 
         .developers {
@@ -530,6 +543,8 @@
             cursor: pointer;
             text-decoration: none;
             box-shadow: 0 10px 20px var(--shadow-color);
+            position: relative;
+            z-index: 1;
         }
 
         .cta-button:hover {
@@ -671,11 +686,6 @@
                 height: 28px;
             }
 
-            .rating-star {
-                width: 20px;
-                height: 20px;
-            }
-
             .rating-message {
                 font-size: 0.9rem;
             }
@@ -700,7 +710,7 @@
         <span></span>
     </button>
 
-     <!-- Theme Toggle -->
+    <!-- Theme Toggle -->
     <button class="theme-toggle bouncy" aria-label="Toggle Theme" onclick="toggleTheme()">
         <i class="fas fa-sun" aria-hidden="true"></i> <span id="theme-text">Light</span>
     </button>
@@ -1024,7 +1034,7 @@
                 console.error('Error showing support menu:', error);
             }
         }
-
+        
         // Utility Functions
         function openLink(url) {
             try {
