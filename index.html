@@ -13,43 +13,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Light Theme Colors - Soft Pastel */
-            --bg-primary: linear-gradient(135deg, #F5F5DC 0%, #E6E6FA 25%, #D8E4FF 50%, #D4E4E6 75%, #CED4DA 100%);
-            --bg-secondary: rgba(255, 255, 255, 0.95);
-            --bg-sidebar: linear-gradient(180deg, #F8F9FA 0%, #E6E6FA 50%, #D8E4FF 100%);
-            --bg-button: linear-gradient(45deg, #A3BFFA, #7F9CF5);
-            --text-primary: #2D3748;
-            --text-secondary: #4A5568;
+            /* Light Theme - Soft Coklat dan Merah Muda Pastel */
+            --bg-primary: linear-gradient(135deg, #F8EDEB 0%, #F5E6EB 50%, #FFE4E8 100%); /* Coklat pucat ke merah muda pastel */
+            --bg-secondary: rgba(248, 237, 235, 0.95); /* Coklat pucat lembut */
+            --bg-sidebar: linear-gradient(180deg, #EADBC8 0%, #FAD2E1 100%); /* Beige lembut ke pink pucat */
+            --bg-button: linear-gradient(45deg, #D8C4B6, #FAD2E1); /* Coklat krem ke pink pucat */
+            --text-primary: #4F3A36; /* Coklat tua lembut untuk teks */
+            --text-secondary: #7A645C; /* Coklat sedang */
             --text-light: #FFFFFF;
-            --accent-color: #68D391;
-            --hamburger-bg: rgba(163, 191, 250, 0.9);
-            --card-border: rgba(79, 91, 117, 0.15);
-            --contact-bg: rgba(163, 191, 250, 0.9);
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --border-gradient: linear-gradient(45deg, #68D391, #7F9CF5);
+            --accent-color: #FFE4E8; /* Merah muda pastel sebagai aksen */
+            --hamburger-bg: rgba(216, 196, 182, 0.9); /* Coklat krem transparan */
+            --card-border: transparent; /* Tidak ada border */
+            --contact-bg: rgba(248, 237, 235, 0.9); /* Coklat pucat lembut */
+            --shadow-color: rgba(0, 0, 0, 0.03); /* Bayangan sangat lembut */
+            --border-gradient: linear-gradient(45deg, #D8C4B6, #FAD2E1); /* Coklat krem ke pink pucat */
         }
 
         [data-theme="dark"] {
-            /* Dark Theme Colors - Soft Dark Pastel */
-            --bg-primary: linear-gradient(135deg, #2D3748 0%, #4A5568 25%, #5A6B7A 50%, #6B7280 75%, #718096 100%);
-            --bg-secondary: rgba(255, 255, 255, 0.2);
-            --bg-sidebar: linear-gradient(180deg, #4A5568 0%, #5A6B7A 50%, #718096 100%);
-            --bg-button: linear-gradient(45deg, #4C51BF, #667EEA);
-            --text-primary: #E2E8F0;
-            --text-secondary: rgba(203, 213, 224, 0.7);
+            /* Dark Theme - Soft Coklat dan Merah Muda Gelap Pastel */
+            --bg-primary: linear-gradient(135deg, #4F3A36 0%, #7A645C 50%, #A68C9A 100%); /* Coklat tua ke merah muda gelap pastel */
+            --bg-secondary: rgba(79, 58, 54, 0.9); /* Coklat tua lembut */
+            --bg-sidebar: linear-gradient(180deg, #5E4D46 0%, #8A7A82 100%); /* Coklat gelap ke merah muda gelap pastel */
+            --bg-button: linearGradient(45deg, #8A7A82, #A68C9A); /* Merah muda gelap pastel ke coklat kemerahan */
+            --text-primary: #F5E6EB; /* Merah muda pucat untuk teks */
+            --text-secondary: rgba(245, 230, 235, 0.7); /* Merah muda pucat transparan */
             --text-light: #FFFFFF;
-            --accent-color: #68D391;
-            --hamburger-bg: rgba(76, 81, 191, 0.9);
-            --card-border: rgba(203, 213, 224, 0.15);
-            --contact-bg: rgba(76, 81, 191, 0.9);
-            --shadow-color: rgba(0, 0, 0, 0.3);
-            --border-gradient: linear-gradient(45deg, #68D391, #667EEA);
+            --accent-color: #A68C9A; /* Merah muda gelap pastel sebagai aksen */
+            --hamburger-bg: rgba(138, 122, 130, 0.9); /* Merah muda gelap transparan */
+            --card-border: transparent; /* Tidak ada border */
+            --contact-bg: rgba(79, 58, 54, 0.9); /* Coklat tua lembut */
+            --shadow-color: rgba(0, 0, 0, 0.05); /* Bayangan lembut */
+            --border-gradient: linear-gradient(45deg, #8A7A82, #A68C9A); /* Merah muda gelap pastel */
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            border: none;
         }
 
         body {
@@ -138,8 +144,7 @@
             border-radius: 16px;
             padding: 14px;
             cursor: pointer;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 6px 14px var(--shadow-color);
+            box-shadow: 0 4px 8px var(--shadow-color);
         }
 
         .hamburger span {
@@ -170,7 +175,7 @@
             top: 25px;
             left: 25px;
             background: var(--bg-secondary);
-            border: 1px solid var(--card-border);
+            border: none;
             border-radius: 16px;
             padding: 10px 14px;
             cursor: pointer;
@@ -181,6 +186,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            box-shadow: 0 4px 8px var(--shadow-color);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -198,7 +204,7 @@
             width: 400px;
             height: 100vh;
             background: var(--bg-sidebar);
-            box-shadow: -6px 0 25px var(--shadow-color);
+            box-shadow: -4px 0 12px var(--shadow-color);
             transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
             z-index: 999;
             overflow-y: auto;
@@ -225,7 +231,6 @@
             visibility: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 998;
-            backdrop-filter: blur(6px);
         }
 
         .sidebar-overlay.active {
@@ -252,12 +257,13 @@
             padding: 14px 18px;
             margin-bottom: 25px;
             background: var(--bg-secondary);
-            border: 1px solid var(--card-border);
+            border: none;
             border-radius: 16px;
             color: var(--text-primary);
             cursor: pointer;
             font-size: 0.95rem;
             font-weight: 500;
+            box-shadow: 0 4px 8px var(--shadow-color);
         }
 
         .sidebar-section {
@@ -269,7 +275,6 @@
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 25px;
-            text-shadow: 0 1px 3px var(--shadow-color);
         }
 
         .sidebar-item {
@@ -279,7 +284,7 @@
             padding: 16px 22px;
             margin-bottom: 12px;
             background: var(--bg-secondary);
-            border: 1px solid var(--card-border);
+            border: none;
             border-radius: 16px;
             color: var(--text-primary);
             text-decoration: none;
@@ -288,12 +293,12 @@
             font-weight: 500;
             width: 100%;
             text-align: left;
-            position: relative;
+            box-shadow: 0 4px 8px var(--shadow-color);
         }
 
         .sidebar-item:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 24px var(--shadow-color), 0 0 12px var(--accent-color);
+            box-shadow: 0 8px 16px var(--shadow-color), 0 0 8px var(--accent-color);
             background: var(--accent-color);
             color: var(--text-light);
         }
@@ -332,12 +337,11 @@
         .hero {
             text-align: center;
             background: var(--bg-secondary);
-            backdrop-filter: blur(20px);
+            border: none;
+            border-image: none;
             border-radius: 24px;
             padding: 80px 60px;
-            box-shadow: 0 24px 48px var(--shadow-color);
-            border: 2px solid transparent;
-            border-image: var(--border-gradient) 1;
+            box-shadow: 0 12px 24px var(--shadow-color);
             position: relative;
             overflow: hidden;
             opacity: 0;
@@ -357,7 +361,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(245, 230, 235, 0.1) 0%, transparent 70%);
             animation: rotate 25s linear infinite;
             pointer-events: none;
         }
@@ -373,9 +377,6 @@
             font-weight: 800;
             letter-spacing: 0.02em;
             margin-bottom: 20px;
-            text-shadow: 0 2px 5px var(--shadow-color);
-            position: relative;
-            z-index: 1;
         }
 
         .hero-subtitle {
@@ -383,8 +384,6 @@
             font-size: 1.4rem;
             font-weight: 400;
             margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
         }
 
         .developers, .rom-info, .rating-section {
@@ -400,21 +399,19 @@
             font-weight: 500;
             background: var(--bg-secondary);
             padding: 25px;
+            border: none;
             border-radius: 16px;
-            border: 1px solid var(--card-border);
             margin-bottom: 35px;
-            position: relative;
-            z-index: 1;
+            box-shadow: 0 4px 8px var(--shadow-color);
         }
 
         .rom-info {
             background: var(--bg-secondary);
-            border: 1px solid var(--card-border);
+            border: none;
             border-radius: 16px;
             padding: 25px;
             margin-bottom: 35px;
-            position: relative;
-            z-index: 1;
+            box-shadow: 0 4px 8px var(--shadow-color);
         }
 
         .rom-info h3 {
@@ -523,8 +520,6 @@
             cursor: pointer;
             text-decoration: none;
             box-shadow: 0 10px 20px var(--shadow-color);
-            position: relative;
-            z-index: 1;
         }
 
         .cta-button:hover {
@@ -558,7 +553,6 @@
         .footer {
             background: var(--bg-sidebar);
             padding: 25px 0;
-            border-top: 1px solid var(--card-border);
             margin-top: 50px;
             border-radius: 16px 16px 0 0;
         }
@@ -811,7 +805,7 @@
             </div>
             <div class="rom-info">
                 <h3>What We Build</h3>
-                <p>• Custom ROMs for Pixel 4 series (flame, coral, bramble)</p>
+                <p>• Custom ROMs for Pixel 4 series (flame, coral)</p>
                 <p>• Specialized builds for Pixel 4a (sunfish)</p>
                 <p>• Regular security updates & stability improvements</p>
                 <p>• Active community support & troubleshooting</p>
