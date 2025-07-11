@@ -101,18 +101,18 @@
             border: 6px solid var(--accent-color);
             border-top: 6px solid transparent;
             border-radius: 50%;
-            animation: spin 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite, pulse 1.5s ease-in-out infinite;
-        }
+            animation: spin 1.2s linear infinite, pulse 1.5s ease-in-out infinite;
+      }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+      @keyframes spin {
+           0% { transform: rotate(0deg); }
+           100% { transform: rotate(360deg); }
+      }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
+      @keyframes pulse {
+           0%, 100% { transform: scale(1); }
+           50% { transform: scale(1.2); }
+       }
 
         /* Animasi Bouncy */
         @keyframes bounce {
@@ -1127,9 +1127,28 @@
                 setTimeout(() => {
                     preloader.classList.add('hidden');
                     setTimeout(() => preloader.remove(), 800);
-                }, 1500);
+                }, 3000); // Delay 3 detik untuk pengujian
             } catch (error) {
                 console.error('Error hiding preloader:', error);
+            }
+         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                initializeTheme();
+                updateRatingDisplay();
+                checkRatingStatus();
+                hidePreloader();
+                const sidebar = document.querySelector('.sidebar');
+                const overlay = document.querySelector('.sidebar-overlay');
+                const hamburger = document.querySelector('.hamburger');
+                if (sidebar && overlay && hamburger) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            } catch (error) {
+                console.error('Error during DOMContentLoaded:', error);
             }
         }
 
