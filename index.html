@@ -34,7 +34,7 @@
             --bg-primary: linear-gradient(135deg, #4F3A36 0%, #7A645C 50%, #A68C9A 100%); /* Coklat tua ke merah muda gelap pastel */
             --bg-secondary: rgba(79, 58, 54, 0.9); /* Coklat tua lembut */
             --bg-sidebar: linear-gradient(180deg, #5E4D46 0%, #8A7A82 100%); /* Coklat gelap ke merah muda gelap pastel */
-            --bg-button: linearGradient(45deg, #8A7A82, #A68C9A); /* Merah muda gelap pastel ke coklat kemerahan */
+            --bg-button: linear-gradient(45deg, #8A7A82, #A68C9A); /* Merah muda gelap pastel ke coklat kemerahan */
             --text-primary: #F5E6EB; /* Merah muda pucat untuk teks */
             --text-secondary: rgba(245, 230, 235, 0.7); /* Merah muda pucat transparan */
             --text-light: #FFFFFF;
@@ -102,17 +102,17 @@
             border-top: 6px solid transparent;
             border-radius: 50%;
             animation: spin 1.2s linear infinite, pulse 1.5s ease-in-out infinite;
-      }
+        }
 
-      @keyframes spin {
-           0% { transform: rotate(0deg); }
-           100% { transform: rotate(360deg); }
-      }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-      @keyframes pulse {
-           0%, 100% { transform: scale(1); }
-           50% { transform: scale(1.2); }
-       }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
 
         /* Animasi Bouncy */
         @keyframes bounce {
@@ -805,7 +805,7 @@
             </div>
             <div class="rom-info">
                 <h3>What We Build</h3>
-                <p>• Custom ROMs for Pixel 4 series (flame, coral, bramble)</p>
+                <p>• Custom ROMs for Pixel 4 series (flame, coral)</p>
                 <p>• Specialized builds for Pixel 4a (sunfish)</p>
                 <p>• Regular security updates & stability improvements</p>
                 <p>• Active community support & troubleshooting</p>
@@ -1130,25 +1130,6 @@
                 }, 3000); // Delay 3 detik untuk pengujian
             } catch (error) {
                 console.error('Error hiding preloader:', error);
-            }
-         }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            try {
-                initializeTheme();
-                updateRatingDisplay();
-                checkRatingStatus();
-                hidePreloader();
-                const sidebar = document.querySelector('.sidebar');
-                const overlay = document.querySelector('.sidebar-overlay');
-                const hamburger = document.querySelector('.hamburger');
-                if (sidebar && overlay && hamburger) {
-                    sidebar.classList.remove('active');
-                    overlay.classList.remove('active');
-                    hamburger.classList.remove('active');
-                }
-            } catch (error) {
-                console.error('Error during DOMContentLoaded:', error);
             }
         }
 
