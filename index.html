@@ -669,23 +669,6 @@
                 right: 10px;
             }
 
-            .sidebar-item::after {
-                display: block;
-                position: absolute;
-                top: calc(100% + 8px);
-                left: 50%;
-                transform: translateX(-50%);
-                background: var(--tooltip-bg);
-                color: var(--tooltip-text);
-                font-size: 0.8rem;
-                margin-top: 5px;
-                opacity: 1;
-                visibility: visible;
-                max-width: 80%;
-                padding: 6px 10px;
-                border-radius: 6px;
-            }
-
             .star {
                 width: 26px;
                 height: 26px;
@@ -727,17 +710,17 @@
         <div class="main-menu">
             <div class="sidebar-section">
                 <h3 class="sidebar-title">Menu</h3>
-                <button class="sidebar-item bouncy" onclick="showSubMenu('support')" data-tooltip="Support our development efforts">
+                <button class="sidebar-item bouncy" onclick="showSubMenu('support')"
                     <span class="icon"><i class="fas fa-heart" aria-hidden="true"></i></span>
                     <span>Support</span>
                     <span style="margin-left: auto;"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="showSubMenu('community')" data-tooltip="Join our community channels">
+                <button class="sidebar-item bouncy" onclick="showSubMenu('community')"
                     <span class="icon"><i class="fas fa-users" aria-hidden="true"></i></span>
                     <span>Community</span>
                     <span style="margin-left: auto;"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="showSubMenu('resources')" data-tooltip="Explore development resources">
+                <button class="sidebar-item bouncy" onclick="showSubMenu('resources')"
                     <span class="icon"><i class="fas fa-code" aria-hidden="true"></i></span>
                     <span>Resources</span>
                     <span style="margin-left: auto;"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
@@ -752,27 +735,27 @@
             </button>
             <div class="sidebar-section">
                 <h3 class="sidebar-title">Support Development</h3>
-                <button class="sidebar-item bouncy" onclick="openLink('https://ko-fi.com/roshan0746')" data-tooltip="Support us via Ko-fi">
+                <button class="sidebar-item bouncy" onclick="openLink('https://ko-fi.com/roshan0746')"
                     <span class="icon"><i class="fas fa-coffee" aria-hidden="true"></i></span>
                     <span>Buy us a Coffee</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('https://paypal.me/Roshan0746?country.x=IN&locale.x=en_GB')" data-tooltip="Donate via PayPal">
+                <button class="sidebar-item bouncy" onclick="openLink('https://paypal.me/Roshan0746?country.x=IN&locale.x=en_GB')"
                     <span class="icon"><i class="fab fa-paypal" aria-hidden="true"></i></span>
                     <span>PayPal</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('upi://pay?pa=rsagvekar36-4@okhdfcbank')" data-tooltip="Pay via UPI">
+                <button class="sidebar-item bouncy" onclick="openLink('upi://pay?pa=rsagvekar36-4@okhdfcbank')"
                     <span class="icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></span>
                     <span>UPI Payment</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="copyToClipboard('1820016018186')" data-tooltip="Copy Bank Mandiri account number">
+                <button class="sidebar-item bouncy" onclick="copyToClipboard('1820016018186')"
                     <span class="icon"><i class="fas fa-university" aria-hidden="true"></i></span>
                     <span>Bank Mandiri</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="copyToClipboard('901390271248')" data-tooltip="Copy SeaBank account number">
+                <button class="sidebar-item bouncy" onclick="copyToClipboard('901390271248')"
                     <span class="icon"><i class="fas fa-university" aria-hidden="true"></i></span>
                     <span>SeaBank</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="copyToClipboard('082258901971')" data-tooltip="Copy DANA account number">
+                <button class="sidebar-item bouncy" onclick="copyToClipboard('082258901971')"
                     <span class="icon"><i class="fas fa-wallet" aria-hidden="true"></i></span>
                     <span>DANA</span>
                 </button>
@@ -786,27 +769,27 @@
             </button>
             <div class="sidebar-section">
                 <h3 class="sidebar-title">Community & Support</h3>
-                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/pixel4seriesupdates')" data-tooltip="Join main support channel">
+                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/pixel4seriesupdates')"
                     <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                     <span>Main Support Channel</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/roshan_0746')" data-tooltip="Join Sunfish support channel">
+                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/roshan_0746')"
                     <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                     <span>Sunfish Support Channel</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('mailto:rsagvekar36@gmail.com')" data-tooltip="Contact Roshan via email">
+                <button class="sidebar-item bouncy" onclick="openLink('mailto:rsagvekar36@gmail.com')"
                     <span class="icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
                     <span>Email Roshan</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('mailto:bias.khaliq@gmail.com')" data-tooltip="Contact Khaliq via email">
+                <button class="sidebar-item bouncy" onclick="openLink('mailto:bias.khaliq@gmail.com')"
                     <span class="icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
                     <span>Email Khaliq</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/RoshanGP4A')" data-tooltip="Direct message Roshan">
+                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/RoshanGP4A')"
                     <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                     <span>Roshan Direct</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/VOLD_NAMESPACE')" data-tooltip="Direct message Khaliq">
+                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/VOLD_NAMESPACE')"
                     <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                     <span>Khaliq Direct</span>
                 </button>
@@ -820,11 +803,11 @@
             </button>
             <div class="sidebar-section">
                 <h3 class="sidebar-title">Development Resources</h3>
-                <button class="sidebar-item bouncy" onclick="openLink('https://github.com/Bias8145')" data-tooltip="View Khaliq's GitHub">
+                <button class="sidebar-item bouncy" onclick="openLink('https://github.com/Bias8145')"
                     <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span>
                     <span>GitHub Repository Khaliq</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('https://github.com/Roshan0746')" data-tooltip="View Roshan's GitHub">
+                <button class="sidebar-item bouncy" onclick="openLink('https://github.com/Roshan0746')"
                     <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span>
                     <span>GitHub Repository Roshan</span>
                 </button>
