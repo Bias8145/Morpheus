@@ -19,7 +19,7 @@
             /* Light Theme - Soft Coklat dan Merah Muda Pastel */
             --bg-primary: linear-gradient(135deg, #FFF5F5 0%, #F9E8E8 50%, #FEE2E2 100%);
             --bg-secondary: rgba(255, 245, 245, 0.95);
-            --bg-sidebar: linear-gradient(180deg, #EADBC8 0%, #F4C4C9 100%);
+            --bg-sidebar: linear-gradient(180deg, rgba(234, 219, 200, 0.3), rgba(244, 196, 201, 0.3));
             --bg-button: linear-gradient(45deg, #D4B8A5, #F4C4C9);
             --text-primary: #3A2E2B;
             --text-secondary: #6B4E4A;
@@ -36,7 +36,7 @@
             /* Dark Theme - Soft Coklat dan Merah Muda Gelap Pastel */
             --bg-primary: linear-gradient(135deg, #3A2E2B 0%, #5A4542 50%, #8A6A72 100%);
             --bg-secondary: rgba(58, 46, 43, 0.9);
-            --bg-sidebar: linear-gradient(180deg, #4A3B38 0%, #7A5A62 100%);
+            --bg-sidebar: linear-gradient(180deg, rgba(74, 59, 56, 0.3), rgba(138, 106, 114, 0.3));
             --bg-button: linear-gradient(45deg, #7A5A62, #8A6A72);
             --text-primary: #FFE6E8;
             --text-secondary: rgba(255, 230, 232, 0.7);
@@ -45,9 +45,8 @@
             --hamburger-bg: rgba(122, 90, 98, 0.85);
             --card-border: transparent;
             --contact-bg: rgba(58, 46, 43, 0.9);
-            --shadow-color: rgba(0, 0, 0, 0.15);
+            --shadow-color: rgba(255, 255, 255, 0.1); /* Glow halus untuk dark mode */
             --border-gradient: linear-gradient(45deg, #7A5A62, #8A6A72);
-            
         }
 
         * {
@@ -85,7 +84,7 @@
             justify-content: center;
             align-items: center;
             z-index: 1002;
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .preloader.hidden {
@@ -108,7 +107,7 @@
             border-radius: 50%;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) scale(0.8);
             animation: dot-move 1.5s ease-in-out infinite;
             animation-delay: calc(var(--i) * 0.2s);
         }
@@ -119,8 +118,8 @@
         }
 
         @keyframes dot-move {
-            0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+            0%, 100% { transform: translate(-50%, -50%) scale(0.6); opacity: 0.4; }
+            50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
         }
 
         /* Animasi Bouncy */
@@ -213,8 +212,12 @@
             width: 400px;
             height: 100vh;
             background: var(--bg-sidebar);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: -3px 0 10px var(--shadow-color);
-            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity: 0.3s ease;
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, transform 0.3s ease;
+            transform: translateX(10px);
             z-index: 999;
             overflow-y: auto;
             padding: 70px 25px 25px;
@@ -227,6 +230,7 @@
             right: 0;
             visibility: visible;
             opacity: 1;
+            transform: translateX(0);
         }
 
         .sidebar-overlay {
@@ -281,9 +285,9 @@
 
         .sidebar-title {
             color: var(--text-primary);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .sidebar-item {
@@ -292,37 +296,77 @@
             gap: 12px;
             padding: 14px 20px;
             margin-bottom: 10px;
-            background: var(--bg-secondary);
-            border: none;
+            background: rgba(234, 219, 200, 0.3);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 12px;
             color: var(--text-primary);
             text-decoration: none;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 500;
             width: 100%;
             text-align: left;
             box-shadow: 0 3px 6px var(--shadow-color);
             position: relative;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: calc(var(--i) * 0.1s);
+        }
+
+        [data-theme="dark"] .sidebar-item {
+            background: rgba(74, 59, 56, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .sidebar-item:hover {
             transform: translateY(-2px) scale(1.01);
-            box-shadow: 0 6px 12px var(--shadow-color), 0 0 6px var(--accent-color);
+            box-shadow: 0 6px 12px var(--shadow-color), 0 0 8px rgba(244, 196, 201, 0.3);
+            background: rgba(244, 196, 201, 0.4);
+            color: var(--text-light);
+        }
+
+        [data-theme="dark"] .sidebar-item:hover {
+            box-shadow: 0 6px 12px var(--shadow-color), 0 0 8px rgba(138, 106, 114, 0.3);
+            background: rgba(138, 106, 114, 0.4);
+        }
+
+        .sidebar-item::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            top: 50%;
+            left: calc(100% + 12px);
+            transform: translateY(-50%);
             background: var(--accent-color);
             color: var(--text-light);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 400;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
         }
 
         .sidebar-item:hover::after {
             opacity: 1;
             visibility: visible;
-            left: calc(100% + 12px);
         }
 
         .sidebar-item .icon {
             font-size: 1.2rem;
             width: 24px;
             text-align: center;
+        }
+
+        @supports not (backdrop-filter: blur(8px)) {
+            .sidebar-item {
+                background: var(--bg-secondary);
+            }
         }
 
         /* Main Content - Hero Section */
@@ -562,6 +606,9 @@
 
         .footer {
             background: var(--bg-sidebar);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 20px 0;
             margin-top: 40px;
             border-radius: 12px 12px 0 0;
@@ -657,6 +704,11 @@
                 right: -85vw;
             }
 
+            .sidebar-item {
+                padding: 12px 16px;
+                font-size: 0.9rem;
+            }
+
             .theme-toggle {
                 top: 10px;
                 left: 10px;
@@ -710,17 +762,17 @@
         <div class="main-menu">
             <div class="sidebar-section">
                 <h3 class="sidebar-title">Menu</h3>
-                <button class="sidebar-item bouncy" onclick="showSubMenu('support')"
+                <button class="sidebar-item bouncy" onclick="showSubMenu('support')" aria-label="View Support Options" data-tooltip="Support our work">
                     <span class="icon"><i class="fas fa-heart" aria-hidden="true"></i></span>
                     <span>Support</span>
                     <span style="margin-left: auto;"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="showSubMenu('community')"
+                <button class="sidebar-item bouncy" onclick="showSubMenu('community')" aria-label="Join Community" data-tooltip="Connect with our community">
                     <span class="icon"><i class="fas fa-users" aria-hidden="true"></i></span>
                     <span>Community</span>
                     <span style="margin-left: auto;"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="showSubMenu('resources')"
+                <button class="sidebar-item bouncy" onclick="showSubMenu('resources')" aria-label="View Resources" data-tooltip="Explore development resources">
                     <span class="icon"><i class="fas fa-code" aria-hidden="true"></i></span>
                     <span>Resources</span>
                     <span style="margin-left: auto;"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
@@ -730,32 +782,32 @@
 
         <!-- Support Sub-menu -->
         <div class="sub-menu" id="support-menu">
-            <button class="back-button bouncy" onclick="showMainMenu()">
+            <button class="back-button bouncy" onclick="showMainMenu()" aria-label="Back to Main Menu">
                 <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Menu
             </button>
             <div class="sidebar-section">
                 <h3 class="sidebar-title">Support Development</h3>
-                <button class="sidebar-item bouncy" onclick="openLink('https://ko-fi.com/roshan0746')"
+                <button class="sidebar-item bouncy" onclick="openLink('https://ko-fi.com/roshan0746')" aria-label="Support via Ko-fi" data-tooltip="Donate via Ko-fi">
                     <span class="icon"><i class="fas fa-coffee" aria-hidden="true"></i></span>
                     <span>Buy us a Coffee</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('https://paypal.me/Roshan0746?country.x=IN&locale.x=en_GB')"
+                <button class="sidebar-item bouncy" onclick="openLink('https://paypal.me/Roshan0746?country.x=IN&locale.x=en_GB')" aria-label="Support via PayPal" data-tooltip="Donate via PayPal">
                     <span class="icon"><i class="fab fa-paypal" aria-hidden="true"></i></span>
                     <span>PayPal</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('upi://pay?pa=rsagvekar36-4@okhdfcbank')"
+                <button class="sidebar-item bouncy" onclick="openLink('upi://pay?pa=rsagvekar36-4@okhdfcbank')" aria-label="Support via UPI" data-tooltip="Donate via UPI">
                     <span class="icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></span>
                     <span>UPI Payment</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="copyToClipboard('1820016018186')"
+                <button class="sidebar-item bouncy" onclick="copyToClipboard('1820016018186')" aria-label="Copy Bank Mandiri Account" data-tooltip="Copy Bank Mandiri details">
                     <span class="icon"><i class="fas fa-university" aria-hidden="true"></i></span>
                     <span>Bank Mandiri</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="copyToClipboard('901390271248')"
+                <button class="sidebar-item bouncy" onclick="copyToClipboard('901390271248')" aria-label="Copy SeaBank Account" data-tooltip="Copy SeaBank details">
                     <span class="icon"><i class="fas fa-university" aria-hidden="true"></i></span>
                     <span>SeaBank</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="copyToClipboard('082258901971')"
+                <button class="sidebar-item bouncy" onclick="copyToClipboard('082258901971')" aria-label="Copy DANA Account" data-tooltip="Copy DANA details">
                     <span class="icon"><i class="fas fa-wallet" aria-hidden="true"></i></span>
                     <span>DANA</span>
                 </button>
@@ -764,32 +816,32 @@
 
         <!-- Community Sub-menu -->
         <div class="sub-menu" id="community-menu">
-            <button class="back-button bouncy" onclick="showMainMenu()">
+            <button class="back-button bouncy" onclick="showMainMenu()" aria-label="Back to Main Menu">
                 <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Menu
             </button>
             <div class="sidebar-section">
                 <h3 class="sidebar-title">Community & Support</h3>
-                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/pixel4seriesupdates')"
+                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/pixel4seriesupdates')" aria-label="Join Main Support Channel" data-tooltip="Join Telegram support channel">
                     <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                     <span>Main Support Channel</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/roshan_0746')"
+                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/roshan_0746')" aria-label="Join Sunfish Support Channel" data-tooltip="Join Sunfish Telegram channel">
                     <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                     <span>Sunfish Support Channel</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('mailto:rsagvekar36@gmail.com')"
+                <button class="sidebar-item bouncy" onclick="openLink('mailto:rsagvekar36@gmail.com')" aria-label="Email Roshan" data-tooltip="Send email to Roshan">
                     <span class="icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
                     <span>Email Roshan</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('mailto:bias.khaliq@gmail.com')"
+                <button class="sidebar-item bouncy" onclick="openLink('mailto:bias.khaliq@gmail.com')" aria-label="Email Khaliq" data-tooltip="Send email to Khaliq">
                     <span class="icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
                     <span>Email Khaliq</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/RoshanGP4A')"
+                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/RoshanGP4A')" aria-label="Contact Roshan Directly" data-tooltip="Contact Roshan on Telegram">
                     <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                     <span>Roshan Direct</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/VOLD_NAMESPACE')"
+                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/VOLD_NAMESPACE')" aria-label="Contact Khaliq Directly" data-tooltip="Contact Khaliq on Telegram">
                     <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                     <span>Khaliq Direct</span>
                 </button>
@@ -798,16 +850,16 @@
 
         <!-- Resources Sub-menu -->
         <div class="sub-menu" id="resources-menu">
-            <button class="back-button bouncy" onclick="showMainMenu()">
+            <button class="back-button bouncy" onclick="showMainMenu()" aria-label="Back to Main Menu">
                 <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Menu
             </button>
             <div class="sidebar-section">
                 <h3 class="sidebar-title">Development Resources</h3>
-                <button class="sidebar-item bouncy" onclick="openLink('https://github.com/Bias8145')"
+                <button class="sidebar-item bouncy" onclick="openLink('https://github.com/Bias8145')" aria-label="Visit Khaliq's GitHub" data-tooltip="Explore Khaliq's GitHub">
                     <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span>
                     <span>GitHub Repository Khaliq</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('https://github.com/Roshan0746')"
+                <button class="sidebar-item bouncy" onclick="openLink('https://github.com/Roshan0746')" aria-label="Visit Roshan's GitHub" data-tooltip="Explore Roshan's GitHub">
                     <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span>
                     <span>GitHub Repository Roshan</span>
                 </button>
@@ -860,7 +912,7 @@
                     <div class="rating-stars" id="ratingStars"></div>
                 </div>
             </div>
-            <button class="cta-button bouncy" onclick="showSupportMenu()">
+            <button class="cta-button bouncy" onclick="showSupportMenu()" aria-label="Support Development">
                 <span><i class="fas fa-heart" aria-hidden="true"></i></span>
                 <span>Support Development</span>
             </button>
@@ -1150,7 +1202,7 @@
                 if (!preloader) return;
                 window.addEventListener('load', () => {
                     preloader.classList.add('hidden');
-                    setTimeout(() => preloader.remove(), 600);
+                    setTimeout(() => preloader.remove(), 1200);
                 });
             } catch (error) {
                 console.error('Error hiding preloader:', error);
@@ -1167,7 +1219,7 @@
             });
         });
 
-         // Event Listeners
+        // Event Listeners
         document.addEventListener('DOMContentLoaded', () => {
             try {
                 initializeTheme();
