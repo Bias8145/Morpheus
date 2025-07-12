@@ -84,7 +84,7 @@
             justify-content: center;
             align-items: center;
             z-index: 1002;
-            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Fade-out 0.5s */
         }
 
         .preloader.hidden {
@@ -564,6 +564,49 @@
             position: fixed;
             bottom: 20px;
             left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: var(--text-light);
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+
+        .toast.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .toast.error {
+            background: #e57373;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: var(--bg-button);
+            color: var(--text-light);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 8px 16px var(--shadow-color);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px) scale(1.01);
         /* Voting System */
         .rating-section {
             margin: 40px 0;
@@ -758,7 +801,6 @@
             color: var(--text-primary);
             font-size: 1.2rem;
         }
-
         /* Media Queries */
         @media (max-width: 768px) {
             .container {
@@ -850,7 +892,6 @@
     </style>
 </head>
 <body>
-
     <!-- Preloader -->
     <div class="preloader">
         <div class="spinner">
@@ -923,9 +964,7 @@
                     <span class="icon"><i class="fas fa-university" aria-hidden="true"></i></span>
                     <span>SeaBank</span>
                 </button>
-                <button class="
-
-sidebar-item bouncy" onclick="copyToClipboard('082258901971')" aria-label="Copy DANA Account" style="--i: 5;">
+                <button class="sidebar-item bouncy" onclick="copyToClipboard('082258901971')" aria-label="Copy DANA Account" style="--i: 5;">
                     <span class="icon"><i class="fas fa-wallet" aria-hidden="true"></i></span>
                     <span>DANA</span>
                 </button>
@@ -1195,9 +1234,7 @@ sidebar-item bouncy" onclick="copyToClipboard('082258901971')" aria-label="Copy 
         function openLink(url) {
             try {
                 const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-                if (newWindow) new
-
-Window.opener = null;
+                if (newWindow) newWindow.opener = null;
             } catch (error) {
                 console.error('Error opening link:', error);
             }
@@ -1297,7 +1334,33 @@ Window.opener = null;
                 updateRatingDisplay();
                 disableRatingInput();
                 showToast('Thank you for your rating!');
-            } catch (://www.w3.org/2000/svg', 'svg');
+            } catch (error) {
+                logEvent('Error', error.message);
+                showToast('Failed to submit rating. Please try again.', true);
+            }
+        }
+
+        function updateRatingDisplay() {
+            try {
+                const ratings = JSON.parse(localStorage.getItem('ratings') || '[]');
+                const average = ratings.length > 0 
+                    ? (ratings.reduce((sum, r) => sum + r, 0) / ratings.length).toFixed(1)
+                    : '0.0';
+                const voteCount = ratings.length;
+
+                const ratingText = document.getElementById('averageRating');
+                const ratingStars = document.getElementById('ratingStars');
+                if (!ratingText || !ratingStars) return;
+
+                ratingText.textContent = `${average}/5 (${voteCount} votes)`;
+                ratingText.style.animation = 'pulse 0.5s ease-in-out';
+                setTimeout(() => ratingText.style.animation = '', 500);
+
+                ratingStars.innerHTML = '';
+                const fullStars = Math.floor(average);
+                const halfStar = average - fullStars >= 0.5;
+                for (let i = 1; i <= 5; i++) {
+                    const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
                     star.setAttribute('class', 'rating-star');
                     star.setAttribute('viewBox', '0 0 24 24');
                     star.setAttribute('fill', i <= fullStars ? 'var(--accent-color)' : 
@@ -1355,8 +1418,8 @@ Window.opener = null;
                 window.addEventListener('load', () => {
                     setTimeout(() => {
                         preloader.classList.add('hidden');
-                        setTimeout(() => preloader.remove(), 1200);
-                    }, 1500);
+                        setTimeout(() => preloader.remove(), 500); // Match 0.5s fade-out
+                    }, 500); // 0.5-second delay
                 });
             } catch (error) {
                 console.error('Error hiding preloader:', error);
