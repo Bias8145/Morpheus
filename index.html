@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Support Khaliq & Roshan's custom ROM development for Pixel 4 series and Pixel 4a.">
+    <meta name="description" content="Support Khaliq's custom ROM development for Pixel 4 series and Pixel 4a.">
     <meta name="keywords" content="custom ROM, Pixel 4, Pixel 4a, Android, donation">
-    <meta property="og:title" content="Support ROM Development - Khaliq & Roshan">
-    <meta property="og:description" content="Support Khaliq & Roshan's custom ROM development for Pixel 4 series and Pixel 4a.">
+    <meta property="og:title" content="Support ROM Development - Khaliq (Morpheus)">
+    <meta property="og:description" content="Support Khaliq's custom ROM development for Pixel 4 series and Pixel 4a.">
     <meta property="og:image" content="https://example.com/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <title>Support ROM Development - Khaliq & Roshan</title>
+    <title>Support ROM Development - Khaliq (Morpheus)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            /* Light Theme - Soft Brown and Pastel Pink */
             --bg-primary: linear-gradient(135deg, #FFF5F5 0%, #F9E8E8 50%, #FEE2E2 100%);
             --bg-secondary: rgba(255, 245, 245, 0.95);
             --bg-sidebar: transparent;
@@ -33,7 +32,6 @@
         }
 
         [data-theme="dark"] {
-            /* Dark Theme - Soft Brown and Dark Pink Pastel */
             --bg-primary: linear-gradient(135deg, #3A2E2B 0%, #5A4542 50%, #8A6A72 100%);
             --bg-secondary: rgba(58, 46, 43, 0.9);
             --bg-sidebar: transparent;
@@ -72,7 +70,6 @@
             position: relative;
         }
 
-        /* Preloader */
         .preloader {
             position: fixed;
             top: 0;
@@ -84,7 +81,7 @@
             justify-content: center;
             align-items: center;
             z-index: 1002;
-            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Fade-out 0.5s */
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .preloader.hidden {
@@ -122,7 +119,6 @@
             50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
         }
 
-        /* Animations */
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: scale(1); }
             40% { transform: scale(1.15); }
@@ -152,7 +148,6 @@
             animation: bounce 0.3s ease;
         }
 
-        /* Hamburger Menu */
         .hamburger {
             position: fixed;
             top: 20px;
@@ -188,7 +183,6 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
-        /* Theme Toggle */
         .theme-toggle {
             position: fixed;
             top: 20px;
@@ -216,7 +210,6 @@
             box-shadow: 0 0 8px var(--accent-color);
         }
 
-        /* Sidebar */
         .sidebar {
             position: fixed;
             top: 0;
@@ -353,8 +346,8 @@
         }
 
         .sidebar-item .icon {
-            font-size: 1.2rem;
-            width: 24px;
+            font-size: 1rem;
+            width: 20px;
             text-align: center;
         }
 
@@ -370,7 +363,6 @@
             }
         }
 
-        /* Main Content - Hero Section */
         .hero {
             text-align: center;
             background: var(--bg-secondary);
@@ -430,7 +422,7 @@
             z-index: 1;
         }
 
-        .developers, .rom-info, .rating-section {
+        .developers, .rom-info, .rating-section, .visitor-section {
             opacity: 0;
             transform: translateY(15px);
             animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -474,8 +466,7 @@
             margin-bottom: 6px;
         }
 
-        /* Voting System */
-        .rating-section {
+        .rating-section, .visitor-section {
             margin: 40px 0;
             text-align: center;
             background: var(--bg-secondary);
@@ -497,11 +488,11 @@
         }
 
         .star {
-            width: 36px;
-            height: 36px;
+            width: 28px;
+            height: 28px;
             cursor: pointer;
-            border-radius: 8px;
-            padding: 4px;
+            border-radius: 6px;
+            padding: 3px;
             background: var(--bg-secondary);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -553,144 +544,17 @@
         }
 
         .rating-star {
-            width: 22px;
-            height: 22px;
-            border-radius: 6px;
-            padding: 3px;
+            width: 24px;
+            height: 24px;
+            border-radius: 5px;
+            padding: 2px;
             background: var(--bg-secondary);
         }
 
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent-color);
-            color: var(--text-light);
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-size: 0.95rem;
+        .visitor-text {
+            font-size: 1.2rem;
             font-weight: 500;
-            z-index: 1001;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 8px var(--shadow-color);
-        }
-
-        .toast.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .toast.error {
-            background: #e57373;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 32px;
-            background: var(--bg-button);
-            color: var(--text-light);
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            box-shadow: 0 8px 16px var(--shadow-color);
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px) scale(1.01);
-        /* Voting System */
-        .rating-section {
-            margin: 40px 0;
-            text-align: center;
-            background: var(--bg-secondary);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 3px 6px var(--shadow-color);
-        }
-
-        .rating-input {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .rating-input.disabled {
-            pointer-events: none;
-            opacity: 0.6;
-        }
-
-        .star {
-            width: 36px;
-            height: 36px;
-            cursor: pointer;
-            border-radius: 8px;
-            padding: 4px;
-            background: var(--bg-secondary);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .star:hover, .star.selected {
-            transform: scale(1.1);
-            background: var(--accent-color);
-            fill: var(--text-light);
-            box-shadow: 0 0 8px var(--accent-color), 0 0 12px rgba(244, 196, 201, 0.5);
-        }
-
-        .star:active {
-            animation: bounce 0.3s ease;
-        }
-
-        .rating-message {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            font-weight: 400;
-            margin-top: 8px;
-            opacity: 0;
-            transform: translateY(8px);
-            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .rating-message.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .rating-display {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .rating-text {
-            font-size: 1.8rem;
-            font-weight: 600;
             color: var(--text-primary);
-            animation: pulse 0.5s ease-in-out;
-        }
-
-        .rating-stars {
-            display: flex;
-            gap: 4px;
-        }
-
-        .rating-star {
-            width: 22px;
-            height: 22px;
-            border-radius: 6px;
-            padding: 3px;
-            background: var(--bg-secondary);
         }
 
         .toast {
@@ -799,9 +663,9 @@
 
         .footer-link {
             color: var(--text-primary);
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
-        /* Media Queries */
+
         @media (max-width: 768px) {
             .container {
                 padding: 25px 15px;
@@ -837,8 +701,21 @@
             }
 
             .star {
-                width: 32px;
-                height: 32px;
+                width: 24px;
+                height: 24px;
+            }
+
+            .rating-star {
+                width: 20px;
+                height: 20px;
+            }
+
+            .visitor-text {
+                font-size: 1rem;
+            }
+
+            .sidebar-item .icon, .footer-link {
+                font-size: 0.9rem;
             }
         }
 
@@ -874,11 +751,20 @@
             }
 
             .star {
-                width: 28px;
-                height: 28px;
+                width: 20px;
+                height: 20px;
+            }
+
+            .rating-star {
+                width: 18px;
+                height: 18px;
             }
 
             .rating-message {
+                font-size: 0.85rem;
+            }
+
+            .sidebar-item .icon, .footer-link {
                 font-size: 0.85rem;
             }
         }
@@ -892,7 +778,6 @@
     </style>
 </head>
 <body>
-    <!-- Preloader -->
     <div class="preloader">
         <div class="spinner">
             <span class="dot" style="--i: 0;"></span>
@@ -902,19 +787,16 @@
         </div>
     </div>
 
-    <!-- Hamburger Menu -->
     <button class="hamburger bouncy" aria-label="Toggle Sidebar" onclick="toggleSidebar()">
         <span></span>
         <span></span>
         <span></span>
     </button>
 
-    <!-- Theme Toggle -->
     <button class="theme-toggle bouncy" aria-label="Toggle Theme" onclick="toggleTheme()">
         <i class="fas fa-sun" aria-hidden="true"></i> <span id="theme-text">Light</span>
     </button>
 
-    <!-- Sidebar -->
     <div class="sidebar-overlay" onclick="closeSidebar()"></div>
     <div class="sidebar">
         <div class="main-menu">
@@ -985,19 +867,11 @@
                     <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                     <span>Sunfish Support Channel</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('mailto:rsagvekar36@gmail.com')" aria-label="Email Roshan" style="--i: 2;">
-                    <span class="icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
-                    <span>Email Roshan</span>
-                </button>
-                <button class="sidebar-item bouncy" onclick="openLink('mailto:bias.khaliq@gmail.com')" aria-label="Email Khaliq" style="--i: 3;">
+                <button class="sidebar-item bouncy" onclick="openLink('mailto:bias.khaliq@gmail.com')" aria-label="Email Khaliq" style="--i: 2;">
                     <span class="icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
                     <span>Email Khaliq</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/RoshanGP4A')" aria-label="Contact Roshan Directly" style="--i: 4;">
-                    <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
-                    <span>Roshan Direct</span>
-                </button>
-                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/VOLD_NAMESPACE')" aria-label="Contact Khaliq Directly" style="--i: 5;">
+                <button class="sidebar-item bouncy" onclick="openLink('https://t.me/VOLD_NAMESPACE')" aria-label="Contact Khaliq Directly" style="--i: 3;">
                     <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                     <span>Khaliq Direct</span>
                 </button>
@@ -1014,21 +888,16 @@
                     <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span>
                     <span>GitHub Repository Khaliq</span>
                 </button>
-                <button class="sidebar-item bouncy" onclick="openLink('https://github.com/Roshan0746')" aria-label="Visit Roshan's GitHub" style="--i: 1;">
-                    <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span>
-                    <span>GitHub Repository Roshan</span>
-                </button>
             </div>
         </div>
     </div>
 
-    <!-- Main Content -->
     <div class="container">
         <div class="hero">
             <h1 class="hero-title">Support ROM Development</h1>
             <p class="hero-subtitle">Delivering stable Android experiences</p>
             <div class="developers">
-                <strong>Developers:</strong> Khaliq & Roshan
+                <strong>Developer:</strong> Khaliq (Morpheus)
             </div>
             <div class="rom-info">
                 <h3>What We Build</h3>
@@ -1045,26 +914,32 @@
             <div class="rating-section">
                 <h3>Community Satisfaction Rating</h3>
                 <div class="rating-input" id="ratingInput">
-                    <svg class="star bouncy" data-value="1" onclick="submitRating(1)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" aria-label="Rate 1 star">
+                    <svg class="star bouncy" data-value="1" onclick="submitRating(1)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.2" aria-label="Rate ROM 1 star">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
-                    <svg class="star bouncy" data-value="2" onclick="submitRating(2)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" aria-label="Rate 2 stars">
+                    <svg class="star bouncy" data-value="2" onclick="submitRating(2)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.2" aria-label="Rate ROM 2 stars">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
-                    <svg class="star bouncy" data-value="3" onclick="submitRating(3)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" aria-label="Rate 3 stars">
+                    <svg class="star bouncy" data-value="3" onclick="submitRating(3)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.2" aria-label="Rate ROM 3 stars">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
-                    <svg class="star bouncy" data-value="4" onclick="submitRating(4)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" aria-label="Rate 4 stars">
+                    <svg class="star bouncy" data-value="4" onclick="submitRating(4)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.2" aria-label="Rate ROM 4 stars">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
-                    <svg class="star bouncy" data-value="5" onclick="submitRating(5)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" aria-label="Rate 5 stars">
+                    <svg class="star bouncy" data-value="5" onclick="submitRating(5)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.2" aria-label="Rate ROM 5 stars">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
                 </div>
-                <p class="rating-message" id="ratingMessage">You’ve already submitted a rating.</p>
+                <p class="rating-message" id="ratingMessage">You can vote again in a new session.</p>
                 <div class="rating-display">
                     <span class="rating-text" id="averageRating">0.0/5 (0 votes)</span>
                     <div class="rating-stars" id="ratingStars"></div>
+                </div>
+            </div>
+            <div class="visitor-section">
+                <h3>Visitor Statistics</h3>
+                <div class="visitor-display">
+                    <span class="visitor-text" id="visitorCount">Total Visitors: 0 | This Session: 0</span>
                 </div>
             </div>
             <button class="cta-button bouncy" onclick="showSupportMenu()" aria-label="Support Development">
@@ -1075,11 +950,10 @@
         <div class="toast" id="toastNotification"></div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>© 2025 Khaliq & Roshan. All rights reserved.</p>
+                <p>© 2025 Khaliq (Morpheus). All rights reserved.</p>
                 <div class="footer-links">
                     <a href="https://t.me/pixel4seriesupdates" class="footer-link bouncy" aria-label="Telegram" rel="noopener noreferrer"><i class="fab fa-telegram" aria-hidden="true"></i></a>
                     <a href="https://github.com/Bias8145" class="footer-link bouncy" aria-label="GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
@@ -1089,39 +963,9 @@
     </footer>
 
     <script>
-        // Cookie Management
-        function setCookie(name, value, days) {
-            try {
-                let expires = "";
-                if (days) {
-                    const date = new Date();
-                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                    expires = "; expires=" + date.toUTCString();
-                }
-                document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Strict";
-            } catch (error) {
-                console.error('Error setting cookie:', error);
-                alert('Failed to set cookie. Please try again.');
-            }
-        }
+        let currentRating = 0;
+        let visitorCount = 0;
 
-        function getCookie(name) {
-            try {
-                const nameEQ = name + "=";
-                const ca = document.cookie.split(';');
-                for (let i = 0; i < ca.length; i++) {
-                    let c = ca[i];
-                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-                }
-                return null;
-            } catch (error) {
-                console.error('Error getting cookie:', error);
-                return null;
-            }
-        }
-
-        // Theme Management
         function initializeTheme() {
             try {
                 let savedTheme = localStorage.getItem('theme');
@@ -1162,7 +1006,6 @@
             }
         }
 
-        // Sidebar Management
         function toggleSidebar() {
             try {
                 const hamburger = document.querySelector('.hamburger');
@@ -1225,7 +1068,6 @@
             }
         }
 
-        // Utility Functions
         function openLink(url) {
             try {
                 const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
@@ -1259,11 +1101,6 @@
             }
         }
 
-        // Voting/Rating System
-        function logEvent(event, details) {
-            console.log(`[Rating System] ${event}:`, details);
-        }
-
         function showToast(message, isError = false) {
             try {
                 const toast = document.getElementById('toastNotification');
@@ -1280,106 +1117,48 @@
             }
         }
 
-        async function submitRating(rating) {
+        function submitRating(rating) {
             try {
-                if (!window.localStorage || !window.fetch) {
-                    logEvent('Error', 'localStorage or fetch API unavailable');
-                    showToast('Rating system is unavailable.', true);
+                if (sessionStorage.getItem('hasVoted')) {
+                    showToast('You can vote again in a new session.', true);
                     return;
                 }
-
-                // Frontend Validation
                 if (isNaN(rating) || rating < 1 || rating > 5) {
-                    logEvent('Validation Error', `Invalid rating: ${rating}`);
                     showToast('Invalid rating value.', true);
                     return;
                 }
-
-                if (getCookie('ratingSubmitted')) {
-                    logEvent('Duplicate Vote', 'User has already voted');
-                    showToast('You’ve already submitted a rating.', true);
-                    return;
-                }
-
-                // Simulate Backend Request
-                const itemId = '1';
-                const response = await fetch('/api/rate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ itemId, rating }),
-                });
-
-                if (!response.ok) {
-                    const error = await response.json();
-                    logEvent('Backend Error', error.message || 'Failed to submit rating');
-                    showToast('Failed to submit rating. Please try again.', true);
-                    return;
-                }
-
-                const result = await response.json();
-                logEvent('Success', `Rating submitted: ${rating}, Item: ${itemId}`);
-
-                // Update localStorage for fallback
-                let ratings = JSON.parse(localStorage.getItem('ratings') || '[]');
-                ratings.push(rating);
-                localStorage.setItem('ratings', JSON.stringify(ratings));
-                setCookie('ratingSubmitted', 'true', 365);
-
-                // Update UI
+                sessionStorage.setItem('hasVoted', 'true');
+                currentRating = rating;
                 updateRatingDisplay();
                 disableRatingInput();
                 showToast('Thank you for your rating!');
             } catch (error) {
-                logEvent('Error', error.message);
-                showToast('Failed to submit rating. Please try again.', true);
+                console.error('Error submitting rating:', error);
+                showToast('Failed to submit rating.', true);
             }
         }
 
         function updateRatingDisplay() {
             try {
-                const ratings = JSON.parse(localStorage.getItem('ratings') || '[]');
-                const average = ratings.length > 0 
-                    ? (ratings.reduce((sum, r) => sum + r, 0) / ratings.length).toFixed(1)
-                    : '0.0';
-                const voteCount = ratings.length;
-
                 const ratingText = document.getElementById('averageRating');
                 const ratingStars = document.getElementById('ratingStars');
                 if (!ratingText || !ratingStars) return;
-
-                ratingText.textContent = `${average}/5 (${voteCount} votes)`;
+                ratingText.textContent = currentRating ? `${currentRating.toFixed(1)}/5 (1 vote)` : `0.0/5 (0 votes)`;
                 ratingText.style.animation = 'pulse 0.5s ease-in-out';
                 setTimeout(() => ratingText.style.animation = '', 500);
-
                 ratingStars.innerHTML = '';
-                const fullStars = Math.floor(average);
-                const halfStar = average - fullStars >= 0.5;
                 for (let i = 1; i <= 5; i++) {
                     const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
                     star.setAttribute('class', 'rating-star');
                     star.setAttribute('viewBox', '0 0 24 24');
-                    star.setAttribute('fill', i <= fullStars ? 'var(--accent-color)' : 
-                        (i === fullStars + 1 && halfStar ? 'url(#half-star-gradient)' : 'none'));
+                    star.setAttribute('fill', i <= currentRating ? 'var(--accent-color)' : 'none');
                     star.setAttribute('stroke', 'var(--text-secondary)');
-                    star.setAttribute('stroke-width', '1.5');
+                    star.setAttribute('stroke-width', '1.2');
                     star.innerHTML = `<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>`;
                     ratingStars.appendChild(star);
                 }
-
-                if (halfStar) {
-                    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-                    defs.innerHTML = `
-                        <linearGradient id="half-star-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="50%" style="stop-color: var(--accent-color); stop-opacity: 1" />
-                            <stop offset="50%" style="stop-color: transparent; stop-opacity: 1" />
-                        </linearGradient>
-                    `;
-                    ratingStars.appendChild(defs);
-                }
-
-                logEvent('Update Display', `Average: ${average}, Votes: ${voteCount}`);
             } catch (error) {
-                logEvent('Error', `Failed to update rating display: ${error.message}`);
+                console.error('Error updating rating display:', error);
             }
         }
 
@@ -1390,19 +1169,35 @@
                 if (!ratingInput || !ratingMessage) return;
                 ratingInput.classList.add('disabled');
                 ratingMessage.classList.add('show');
-                logEvent('Disable Input', 'Rating input disabled');
             } catch (error) {
-                logEvent('Error', `Failed to disable rating input: ${error.message}`);
+                console.error('Error disabling rating input:', error);
             }
         }
 
         function checkRatingStatus() {
             try {
-                if (getCookie('ratingSubmitted')) {
+                if (sessionStorage.getItem('hasVoted')) {
                     disableRatingInput();
                 }
             } catch (error) {
-                logEvent('Error', `Failed to check rating status: ${error.message}`);
+                console.error('Error checking rating status:', error);
+            }
+        }
+
+        function updateVisitorCount() {
+            try {
+                if (!sessionStorage.getItem('visited')) {
+                    sessionStorage.setItem('visited', 'true');
+                    visitorCount++;
+                }
+                const visitorText = document.getElementById('visitorCount');
+                if (visitorText) {
+                    const sessionVisitors = sessionStorage.getItem('visited') ? '1' : '0';
+                    visitorText.textContent = `Total Visitors: ${visitorCount} | This Session: ${sessionVisitors}`;
+                }
+            } catch (error) {
+                console.error('Error updating visitor count:', error);
+                showToast('Failed to track visitors.', true);
             }
         }
 
@@ -1413,15 +1208,14 @@
                 window.addEventListener('load', () => {
                     setTimeout(() => {
                         preloader.classList.add('hidden');
-                        setTimeout(() => preloader.remove(), 500); // Match 0.5s fade-out
-                    }, 500); // 0.5-second delay
+                        setTimeout(() => preloader.remove(), 300);
+                    }, 300);
                 });
             } catch (error) {
                 console.error('Error hiding preloader:', error);
             }
         }
 
-        // Bouncy Animation on Click
         document.querySelectorAll('.bouncy').forEach(element => {
             element.addEventListener('click', () => {
                 element.style.animation = 'bounce 0.3s ease';
@@ -1431,7 +1225,6 @@
             });
         });
 
-        // Keyboard Accessibility for Rating
         document.querySelectorAll('.star').forEach(star => {
             star.addEventListener('keydown', e => {
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -1442,12 +1235,12 @@
             });
         });
 
-        // Event Listeners
         document.addEventListener('DOMContentLoaded', () => {
             try {
                 initializeTheme();
                 updateRatingDisplay();
                 checkRatingStatus();
+                updateVisitorCount();
                 hidePreloader();
                 const sidebar = document.querySelector('.sidebar');
                 const overlay = document.querySelector('.sidebar-overlay');
