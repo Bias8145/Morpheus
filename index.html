@@ -232,6 +232,7 @@
         }
 
         .sidebar-item {
+            --i: 0;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -254,7 +255,7 @@
             opacity: 0;
             transform: translateY(10px);
             animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            animation-delay: calc(var(--i) * 0.1s);
+            animation-delay: calc(var(--i, 0) * 0.1s);
         }
 
         [data-theme="dark"] .sidebar-item {
