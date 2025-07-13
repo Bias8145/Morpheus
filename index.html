@@ -16,146 +16,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --bg-primary: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 30%, #2a3441 70%, #3a4553 100%);
-            --bg-secondary: rgba(255, 255, 255, 0.08);
-            --bg-sidebar: rgba(255, 255, 255, 0.05);
-            --bg-button: linear-gradient(45deg, #4299e1, #3182ce);
-            --text-primary: #ffffff;
-            --text-secondary: #a0aec0;
-            --text-light: #ffffff;
-            --accent-color: #4299e1;
-            --hamburger-bg: rgba(255, 255, 255, 0.1);
-            --card-border: rgba(255, 255, 255, 0.1);
-            --contact-bg: rgba(255, 255, 255, 0.08);
-            --shadow-color: rgba(0, 0, 0, 0.3);
-            --border-gradient: linear-gradient(45deg, #4299e1, #3182ce);
+            --bg-primary: linear-gradient(135deg, #FFF5F5 0%, #F9E8E8 50%, #FEE2E2 100%);
+            --bg-secondary: rgba(255, 245, 245, 0.95);
+            --bg-sidebar: transparent;
+            --bg-button: linear-gradient(45deg, #D4B8A5, #F4C4C9);
+            --text-primary: #3A2E2B;
+            --text-secondary: #6B4E4A;
+            --text-light: #FFFFFF;
+            --accent-color: #F4C4C9;
+            --hamburger-bg: rgba(216, 196, 182, 0.85);
+            --card-border: transparent;
+            --contact-bg: rgba(255, 245, 245, 0.9);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --border-gradient: linear-gradient(45deg, #D4B8A5, #F4C4C9);
         }
 
         [data-theme="dark"] {
-            --bg-primary: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 30%, #2a3441 70%, #3a4553 100%);
-            --bg-secondary: rgba(58, 46, 43, 0.08);
-            --bg-sidebar: rgba(58, 46, 43, 0.05);
+            --bg-primary: linear-gradient(135deg, #3A2E2B 0%, #5A4542 50%, #8A6A72 100%);
+            --bg-secondary: rgba(58, 46, 43, 0.9);
+            --bg-sidebar: transparent;
             --bg-button: linear-gradient(45deg, #7A5A62, #8A6A72);
-            --text-primary: #ffffff;
+            --text-primary: #FFE6E8;
             --text-secondary: rgba(255, 230, 232, 0.7);
-            --text-light: #ffffff;
+            --text-light: #FFFFFF;
             --accent-color: #8A6A72;
-            --hamburger-bg: rgba(122, 90, 98, 0.1);
-            --card-border: rgba(255, 255, 255, 0.1);
-            --contact-bg: rgba(58, 46, 43, 0.08);
-            --shadow-color: rgba(138, 106, 114, 0.3);
+            --hamburger-bg: rgba(122, 90, 98, 0.85);
+            --card-border: transparent;
+            --contact-bg: rgba(58, 46, 43, 0.9);
+            --shadow-color: rgba(138, 106, 114, 0.08);
             --border-gradient: linear-gradient(45deg, #7A5A62, #8A6A72);
         }
 
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--bg-primary);
             min-height: 100vh;
             line-height: 1.7;
             overflow-x: hidden;
             color: var(--text-primary);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        /* Animated Background */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .nebula {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: nebula-pulse 8s ease-in-out infinite;
-        }
-
-        .nebula1 {
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(138, 43, 226, 0.4) 0%, rgba(75, 0, 130, 0.2) 50%, transparent 100%);
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .nebula2 {
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(30, 144, 255, 0.4) 0%, rgba(0, 100, 200, 0.2) 50%, transparent 100%);
-            top: 60%;
-            right: 20%;
-            animation-delay: 4s;
-        }
-
-        .nebula3 {
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, rgba(255, 20, 147, 0.4) 0%, rgba(199, 21, 133, 0.2) 50%, transparent 100%);
-            bottom: 20%;
-            left: 70%;
-            animation-delay: 2s;
-        }
-
-        @keyframes nebula-pulse {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
-            50% { transform: scale(1.2) rotate(180deg); opacity: 0.6; }
-        }
-
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .star {
-            position: absolute;
-            background: #ffd700;
-            border-radius: 50%;
-            animation: enhanced-twinkle 4s infinite;
-        }
-
-        .star.shooting {
-            animation: shooting-star 3s linear infinite;
-        }
-
-        .star.pulsing {
-            animation: pulse-star 2s ease-in-out infinite;
-        }
-
-        @keyframes enhanced-twinkle {
-            0%, 100% { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
-            25% { opacity: 0.8; transform: scale(1.2) rotate(90deg); }
-            50% { opacity: 1; transform: scale(1.5) rotate(180deg); }
-            75% { opacity: 0.6; transform: scale(1.1) rotate(270deg); }
-        }
-
-        @keyframes shooting-star {
-            0% { transform: translateX(-100px) translateY(100px) rotate(45deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateX(100px) translateY(-100px) rotate(45deg); opacity: 0; }
-        }
-
-        @keyframes pulse-star {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.8); opacity: 1; }
         }
 
         .container {
@@ -163,28 +68,16 @@
             margin: 0 auto;
             padding: 40px 20px;
             position: relative;
-            z-index: 10;
-            background: var(--bg-secondary);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            border: 2px solid var(--card-border);
-            box-shadow: 0 30px 60px var(--shadow-color), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            animation: container-float 6s ease-in-out infinite;
         }
 
-        @keyframes container-float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
+        /* Hamburger Menu Styles */
         .hamburger-menu {
             position: fixed;
             top: 20px;
             right: 20px;
             z-index: 1000;
             background: var(--hamburger-bg);
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--card-border);
+            border: none;
             border-radius: 12px;
             padding: 12px;
             cursor: pointer;
@@ -219,31 +112,24 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
+        /* Dropdown Styles */
         .dropdown {
             position: fixed;
             top: -500px;
             right: 20px;
             width: 320px;
-            background: var(--bg-sidebar);
-            backdrop-filter: blur(15px);
+            background: var(--bg-secondary);
             z-index: 999;
             transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             box-shadow: 0 10px 30px var(--shadow-color);
             border-radius: 15px;
             padding: 20px;
-            border: 2px solid var(--card-border);
             visibility: hidden;
-            animation: dropdown-float 6s ease-in-out infinite;
         }
 
         .dropdown.active {
             top: 100px;
             visibility: visible;
-        }
-
-        @keyframes dropdown-float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
         }
 
         .dropdown-content {
@@ -252,6 +138,7 @@
             gap: 15px;
         }
 
+        /* Dropdown Overlay */
         .dropdown-overlay {
             position: fixed;
             top: 0;
@@ -271,20 +158,20 @@
             visibility: visible;
         }
 
+        /* Control Panel for Font Size and Theme */
         .control-panel-left {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 997;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 997;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         }
 
         .control-button {
             background: var(--bg-secondary);
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--card-border);
+            border: none;
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -296,7 +183,6 @@
             font-size: 1.2rem;
             transition: all 0.4s ease;
             box-shadow: 0 4px 12px var(--shadow-color);
-            animation: button-pulse 3s ease-in-out infinite;
         }
 
         .control-button:hover {
@@ -312,8 +198,7 @@
 
         .theme-toggle {
             background: var(--bg-secondary);
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--card-border);
+            border: none;
             border-radius: 12px;
             padding: 10px 14px;
             cursor: pointer;
@@ -325,7 +210,6 @@
             gap: 8px;
             box-shadow: 0 3px 6px var(--shadow-color);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: button-pulse 3s ease-in-out infinite;
         }
 
         .theme-toggle:hover {
@@ -335,11 +219,7 @@
             box-shadow: 0 0 8px var(--accent-color);
         }
 
-        @keyframes button-pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-        }
-
+        /* Sidebar Items (Reused for Dropdown) */
         .sidebar-section {
             margin-bottom: 30px;
         }
@@ -349,13 +229,6 @@
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 15px;
-            text-shadow: 0 3px 15px rgba(255, 215, 0, 0.5);
-            animation: title-glow 3s ease-in-out infinite;
-        }
-
-        @keyframes title-glow {
-            0%, 100% { text-shadow: 0 3px 15px rgba(255, 215, 0, 0.5); }
-            50% { text-shadow: 0 3px 15px rgba(255, 215, 0, 0.8), 0 0 25px rgba(255, 215, 0, 0.4); }
         }
 
         .sidebar-item {
@@ -365,9 +238,10 @@
             gap: 12px;
             padding: 14px 20px;
             margin-bottom: 10px;
-            background: var(--bg-secondary);
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--card-border);
+            background: rgba(234, 219, 200, 0.3);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 12px;
             color: var(--text-primary);
             text-decoration: none;
@@ -384,11 +258,21 @@
             animation-delay: calc(var(--i, 0) * 0.1s);
         }
 
+        [data-theme="dark"] .sidebar-item {
+            background: rgba(74, 59, 56, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         .sidebar-item:hover {
             transform: translateY(-2px) scale(1.01);
-            box-shadow: 0 6px 12px var(--shadow-color), 0 0 8px var(--accent-color);
-            background: var(--accent-color);
+            box-shadow: 0 6px 12px var(--shadow-color), 0 0 8px rgba(244, 196, 201, 0.3);
+            background: rgba(244, 196, 201, 0.4);
             color: var(--text-light);
+        }
+
+        [data-theme="dark"] .sidebar-item:hover {
+            box-shadow: 0 6px 12px var(--shadow-color), 0 0 8px rgba(138, 106, 114, 0.3);
+            background: rgba(138, 106, 114, 0.4);
         }
 
         .sidebar-item .icon {
@@ -403,15 +287,21 @@
             gap: 8px;
             padding: 12px 16px;
             margin-bottom: 20px;
-            background: var(--bg-secondary);
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--card-border);
+            background: rgba(255, 245, 245, 0.3);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 12px;
             color: var(--text-primary);
             cursor: pointer;
             font-size: 0.9rem;
             font-weight: 500;
             box-shadow: 0 3px 6px var(--shadow-color);
+        }
+
+        [data-theme="dark"] .back-button {
+            background: rgba(58, 46, 43, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .sub-menu {
@@ -422,6 +312,7 @@
             display: block;
         }
 
+        /* Preloader and Other Existing Styles */
         .preloader {
             position: fixed;
             top: 0;
@@ -500,11 +391,11 @@
             animation: bounce 0.3s ease;
         }
 
+        /* Hero and Other Sections */
         .hero {
             text-align: center;
             background: var(--bg-secondary);
-            backdrop-filter: blur(15px);
-            border: 2px solid var(--card-border);
+            border: none;
             border-radius: 20px;
             padding: 60px 40px;
             box-shadow: 0 8px 16px var(--shadow-color);
@@ -514,7 +405,31 @@
             transform: translateY(15px);
             animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
             z-index: 1;
-            animation: container-float 6s ease-in-out infinite;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(245, 230, 235, 0.05) 50%,
+                transparent 100%
+            );
+            filter: blur(8px);
+            animation: gradient-shift 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gradient-shift {
+            0% { transform: translateX(-15%); opacity: 0.3; }
+            50% { transform: translateX(15%); opacity: 0.6; }
+            100% { transform: translateX(-15%); opacity: 0.3; }
         }
 
         .hero-title {
@@ -523,8 +438,8 @@
             font-weight: 800;
             letter-spacing: 0.015em;
             margin-bottom: 15px;
-            text-shadow: 0 3px 15px rgba(255, 215, 0, 0.5);
-            animation: title-glow 3s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-subtitle {
@@ -532,12 +447,8 @@
             font-size: 1.3rem;
             font-weight: 400;
             margin-bottom: 25px;
-            animation: subtitle-fade 3s ease-in-out infinite;
-        }
-
-        @keyframes subtitle-fade {
-            0%, 100% { opacity: 0.9; }
-            50% { opacity: 1; }
+            position: relative;
+            z-index: 1;
         }
 
         .developers, .rom-info, .rating-section, .visitor-section {
@@ -547,19 +458,27 @@
             animation-delay: 0.15s;
             position: relative;
             z-index: 1;
+        }
+
+        .developers {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 500;
             background: var(--bg-secondary);
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--card-border);
+            padding: 20px;
+            border: none;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 6px var(--shadow-color);
+        }
+
+        .rom-info {
+            background: var(--bg-secondary);
+            border: none;
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 30px;
             box-shadow: 0 3px 6px var(--shadow-color);
-            animation: info-pulse 5s ease-in-out infinite;
-        }
-
-        @keyframes info-pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
         }
 
         .rom-info h3 {
@@ -574,6 +493,15 @@
             font-size: 1rem;
             font-weight: 400;
             margin-bottom: 6px;
+        }
+
+        .rating-section, .visitor-section {
+            margin: 40px 0;
+            text-align: center;
+            background: var(--bg-secondary);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 6px var(--shadow-color);
         }
 
         .rating-input {
@@ -595,8 +523,6 @@
             border-radius: 6px;
             padding: 3px;
             background: var(--bg-secondary);
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--card-border);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
         }
@@ -605,7 +531,7 @@
             transform: scale(1.1);
             background: var(--accent-color);
             fill: var(--text-light);
-            box-shadow: 0 0 8px var(--accent-color), 0 0 12px rgba(66, 153, 225, 0.5);
+            box-shadow: 0 0 8px var(--accent-color), 0 0 12px rgba(244, 196, 201, 0.5);
         }
 
         .star:active {
@@ -652,8 +578,6 @@
             border-radius: 5px;
             padding: 2px;
             background: var(--bg-secondary);
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--card-border);
         }
 
         .visitor-text {
@@ -696,7 +620,7 @@
             padding: 16px 32px;
             background: var(--bg-button);
             color: var(--text-light);
-            border: 2px solid var(--card-border);
+            border: none;
             border-radius: 12px;
             font-size: 1.1rem;
             font-weight: 600;
@@ -705,7 +629,6 @@
             box-shadow: 0 8px 16px var(--shadow-color);
             position: relative;
             z-index: 1;
-            animation: button-pulse 3s ease-in-out infinite;
         }
 
         .cta-button:hover {
@@ -738,8 +661,9 @@
 
         .footer {
             background: var(--bg-sidebar);
-            backdrop-filter: blur(15px);
-            border: 2px solid var(--card-border);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 20px 0;
             margin-top: 40px;
             border-radius: 12px 12px 0 0;
@@ -771,6 +695,7 @@
             font-size: 1rem;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 padding: 25px 15px;
@@ -880,11 +805,6 @@
             .sidebar-item .icon, .footer-link {
                 font-size: 0.85rem;
             }
-
-            .nebula1, .nebula2, .nebula3 {
-                width: 100px;
-                height: 100px;
-            }
         }
 
         @media (hover: none) {
@@ -895,27 +815,24 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .star, .rating-text, .toast, .bouncy, .container, .hero, .dropdown, .control-button, .theme-toggle {
+            .star, .rating-text, .toast, .bouncy {
                 animation: none;
                 transition: none;
             }
         }
 
         @supports not (backdrop-filter: blur(8px)) {
-            .dropdown, .back-button, .sidebar-item, .container, .hero, .rom-info, .rating-section, .visitor-section, .footer, .control-button, .theme-toggle {
+            .dropdown, .back-button, .sidebar-item {
+                background: var(--bg-secondary);
+            }
+            [data-theme="dark"] .dropdown, [data-theme="dark"] .back-button, [data-theme="dark"] .sidebar-item {
                 background: var(--bg-secondary);
             }
         }
     </style>
 </head>
 <body>
-    <div class="animated-bg">
-        <div class="nebula nebula1"></div>
-        <div class="nebula nebula2"></div>
-        <div class="nebula nebula3"></div>
-    </div>
-    <div class="stars"></div>
-    <div class="preloader">
+<div class="preloader">
         <div class="spinner">
             <span class="dot" style="--i: 0;"></span>
             <span class="dot" style="--i: 1;"></span>
@@ -923,6 +840,15 @@
             <span class="dot" style="--i: 3;"></span>
         </div>
     </div>
+
+    <!-- Hamburger Menu -->
+    <button class="hamburger-menu bouncy" id="hamburgerMenu" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Control Panel -->
     <div class="control-panel-left">
         <button class="theme-toggle bouncy" aria-label="Toggle Theme" onclick="toggleTheme()">
             <i class="fas fa-sun" aria-hidden="true"></i> <span id="theme-text">Light</span>
@@ -934,11 +860,8 @@
             <i class="fas fa-minus"></i>
         </button>
     </div>
-    <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+
+    <!-- Dropdown Panel -->
     <div class="dropdown" id="dropdown">
         <div class="dropdown-content">
             <div class="main-menu">
@@ -1043,7 +966,10 @@
             </div>
         </div>
     </div>
+
+    <!-- Dropdown Overlay -->
     <div class="dropdown-overlay" onclick="closeDropdown()"></div>
+
     <div class="container">
         <div class="hero">
             <h1 class="hero-title">Support ROM Development</h1>
@@ -1102,6 +1028,7 @@
         <div class="toast" id="toastNotification"></div>
         <div class="copy-notification" id="copyNotification">Copied to clipboard!</div>
     </div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -1113,6 +1040,7 @@
             </div>
         </div>
     </footer>
+
     <script>
         let currentRating = 0;
         let visitorCount = 0;
@@ -1158,6 +1086,7 @@
             }
         }
 
+        // Hamburger Menu Toggle
         function toggleDropdown() {
             try {
                 const hamburger = document.getElementById('hamburgerMenu');
@@ -1368,6 +1297,7 @@
             }
         }
 
+        // Font Size Adjustment
         function adjustFontSize(scale) {
             try {
                 fontSize *= scale;
@@ -1376,25 +1306,6 @@
                 console.error('Error adjusting font size:', error);
                 showToast('Failed to adjust font size.', true);
             }
-        }
-
-        // Dynamically add stars
-        const starsContainer = document.querySelector('.stars');
-        const starCount = 50;
-        for (let i = 0; i < starCount; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.width = `${Math.random() * 3 + 1}px`;
-            star.style.height = star.style.width;
-            star.style.top = `${Math.random() * 100}%`;
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.animationDelay = `${Math.random() * 4}s`;
-            if (Math.random() < 0.1) {
-                star.classList.add('shooting');
-            } else if (Math.random() < 0.3) {
-                star.classList.add('pulsing');
-            }
-            starsContainer.appendChild(star);
         }
 
         document.querySelectorAll('.bouncy').forEach(element => {
@@ -1420,9 +1331,9 @@
             try {
                 initializeTheme();
                 document.querySelectorAll('.sidebar-item').forEach((item, index) => {
-                    item.style.animationDelay = `${index * 0.1}s`;
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateY(0)';
+                item.style.animationDelay = `${index * 0.1}s`;
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
                 });
                 updateRatingDisplay();
                 checkRatingStatus();
@@ -1439,11 +1350,12 @@
             } catch (error) {
                 console.error('Error during DOMContentLoaded:', error);
             }
-            document.querySelectorAll('.sidebar-item').forEach((item, index) => {
-                if (!item.style.getPropertyValue('--i')) {
-                    item.style.setProperty('--i', index.toString());
-                }
-            });
+            // Set --i dynamically for sidebar-item if it doesn't exist yet
+document.querySelectorAll('.sidebar-item').forEach((item, index) => {
+    if (!item.style.getPropertyValue('--i')) {
+        item.style.setProperty('--i', index.toString());
+    }
+});
         });
 
         document.addEventListener('keydown', e => {
