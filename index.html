@@ -1330,6 +1330,11 @@
         document.addEventListener('DOMContentLoaded', () => {
             try {
                 initializeTheme();
+                document.querySelectorAll('.sidebar-item').forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+                });
                 updateRatingDisplay();
                 checkRatingStatus();
                 updateVisitorCount();
