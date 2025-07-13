@@ -1345,6 +1345,12 @@
             } catch (error) {
                 console.error('Error during DOMContentLoaded:', error);
             }
+            // Set --i dynamically for sidebar-item if it doesn't exist yet
+document.querySelectorAll('.sidebar-item').forEach((item, index) => {
+    if (!item.style.getPropertyValue('--i')) {
+        item.style.setProperty('--i', index.toString());
+    }
+});
         });
 
         document.addEventListener('keydown', e => {
