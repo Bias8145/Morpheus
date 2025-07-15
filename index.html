@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Support Khaliq and Roshan's custom ROM development for Pixel 4 series and Pixel 4a.">
+    <meta name="description" content="Support Khaliq custom ROM development for Pixel 4 series.">
     <meta name="keywords" content="custom ROM, Pixel 4, Pixel 4a, Android, donation">
-    <meta property="og:title" content="Support ROM Development - Khaliq & Roshan">
-    <meta property="og:description" content="Support Khaliq and Roshan's custom ROM development for Pixel 4 series and Pixel 4a.">
+    <meta property="og:title" content="Support ROM Development - Khaliq">
+    <meta property="og:description" content="Support Khaliq's custom ROM development for Pixel 4 series and Pixel 4a.">
     <meta property="og:image" content="https://example.com/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <title>Support ROM Development - Khaliq & Roshan</title>
+    <title>Support ROM Development - Khaliq</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap">
@@ -160,13 +160,13 @@
 
         /* Control Panel for Font Size and Theme */
         .control-panel-left {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 997;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 997;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .control-button {
@@ -832,7 +832,7 @@
     </style>
 </head>
 <body>
-<div class="preloader">
+    <div class="preloader">
         <div class="spinner">
             <span class="dot" style="--i: 0;"></span>
             <span class="dot" style="--i: 1;"></span>
@@ -877,7 +877,7 @@
                         <span>Community</span>
                         <span style="margin-left: auto;"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="showSubMenu('resources')" aria-label="View Resources" style="--i: 2;">
+                    <button class="sidebar-item bouncy" onclick="showSubMenu('khaliq')" aria-label="About Khaliq" style="--i: 2;">
                         <span class="icon"><i class="fas fa-code" aria-hidden="true"></i></span>
                         <span>About Khaliq</span>
                         <span style="margin-left: auto;"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
@@ -926,42 +926,44 @@
                         <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                         <span>Main Support Channel</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="openLink('https://t.me/anocroooot')" aria-label="Join Moprheus Build Channel" style="--i: 0;">
+                    <button class="sidebar-item bouncy" onclick="openLink('https://t.me/anocroooot')" aria-label="Join Morpheus Build Channel" style="--i: 1;">
                         <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                         <span>Morpheus Build Channel</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="openLink('https://t.me/roshan_0746')" aria-label="Join Sunfish Support Channel" style="--i: 1;">
+                    <button class="sidebar-item bouncy" onclick="openLink('https://t.me/roshan_0746')" aria-label="Join Sunfish Support Channel" style="--i: 2;">
                         <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                         <span>Sunfish Support Channel</span>
-                </div>
-                <div class="sub-menu" id="khaliq-menu">
+                    </button>
+                </ereo
+            </div>
+            <div class="sub-menu" id="khaliq-menu">
                 <button class="back-button bouncy" onclick="showMainMenu()" aria-label="Back to Main Menu">
                     <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Menu
                 </button>
                 <div class="sidebar-section">
-                    <h3 class="sidebar-title">About Khaliqs Development</h3>
-                    <button class="sidebar-item bouncy" onclick="openLink('mailto:bias.khaliq@gmail.com')" aria-label="Email Khaliq" style="--i: 2;">
+                    <h3 class="sidebar-title">About Khaliq</h3>
+                    <button class="sidebar-item bouncy" onclick="openLink('mailto:bias.khaliq@gmail.com')" aria-label="Email Khaliq" style="--i: 0;">
                         <span class="icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
                         <span>Email Khaliq</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="openLink('https://t.me/VOLD_NAMESPACE')" aria-label="Contact Khaliq Directly" style="--i: 4;">
+                    <button class="sidebar-item bouncy" onclick="openLink('https://t.me/VOLD_NAMESPACE')" aria-label="Contact Khaliq on Telegram" style="--i: 1;">
                         <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                         <span>Khaliq Telegram</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="openLink('https://github.com/Bias8145')" aria-label="Visit Khaliq's GitHub" style="--i: 0;">
+                    <button class="sidebar-item bouncy" onclick="openLink('https://github.com/Bias8145')" aria-label="Visit Khaliq's GitHub" style="--i: 2;">
                         <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span>
-                        <span>GitHub Repository Khaliq</span>
+                        <span>Khaliq's GitHub</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="openLink('https://github.com/Bias8145')" aria-label="Visit Khaliq's GitHub" style="--i: 0;">
-                        <span class="icon"><i class="fab fa-resume" aria-hidden="true"></i></span>
-                        <span>Resume Khaliq</span>
+                    <button class="sidebar-item bouncy" onclick="openLink('https://example.com/khaliq-resume.pdf')" aria-label="View Khaliq's Resume" style="--i: 3;">
+                        <span class="icon"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
+                        <span>Khaliq's Resume</span>
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Dropdown Overlay -->
+        <!-- Dropdown Overlay -->
     <div class="dropdown-overlay" onclick="closeDropdown()"></div>
 
     <div class="container">
@@ -969,7 +971,7 @@
             <h1 class="hero-title">Support ROM Development</h1>
             <p class="hero-subtitle">Delivering stable Android experiences</p>
             <div class="developers">
-                <strong>Developer:</strong> Khaliq & Roshan
+                <strong>Developer:</strong> Khaliq
             </div>
             <div class="rom-info">
                 <h3>What We Build</h3>
@@ -979,26 +981,26 @@
                 <p>• Active community support & troubleshooting</p>
             </div>
             <p class="hero-description">
-                Help us continue developing high-quality custom ROMs with consistent updates and new features. 
-                Your support enables us to maintain our devices and provide the community with stable, 
+                Help Khaliq continue developing high-quality custom ROMs with consistent updates and new features. 
+                Your support enables the maintenance of devices and provides the community with stable, 
                 feature-rich Android experiences.
             </p>
             <div class="rating-section">
                 <h3>Community Satisfaction Rating</h3>
                 <div class="rating-input" id="ratingInput">
-                    <svg class="star bouncy" data-value="1" onclick="submitRating(1)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.2" aria-label="Rate ROM 1 star">
+                    <svg class="star bouncy" data-value="1" onclick="submitRating(1)" viewBox="0 0 24 24" aria-label="Rate ROM 1 star">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
-                    <svg class="star bouncy" data-value="2" onclick="submitRating(2)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.2" aria-label="Rate ROM 2 stars">
+                    <svg class="star bouncy" data-value="2" onclick="submitRating(2)" viewBox="0 0 24 24" aria-label="Rate ROM 2 stars">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
-                    <svg class="star bouncy" data-value="3" onclick="submitRating(3)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.2" aria-label="Rate ROM 3 stars">
+                    <svg class="star bouncy" data-value="3" onclick="submitRating(3)" viewBox="0 0 24 24" aria-label="Rate ROM 3 stars">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
-                    <svg class="star bouncy" data-value="4" onclick="submitRating(4)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.2" aria-label="Rate ROM 4 stars">
+                    <svg class="star bouncy" data-value="4" onclick="submitRating(4)" viewBox="0 0 24 24" aria-label="Rate ROM 4 stars">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
-                    <svg class="star bouncy" data-value="5" onclick="submitRating(5)" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.2" aria-label="Rate ROM 5 stars">
+                    <svg class="star bouncy" data-value="5" onclick="submitRating(5)" viewBox="0 0 24 24" aria-label="Rate ROM 5 stars">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
                 </div>
@@ -1036,6 +1038,10 @@
     </footer>
 
     <script>
+        // Replace with your backend API URL after deployment
+        const API_BASE_URL = 'https://your-backend-url.com/api'; // Update this with your deployed backend URL
+        const NOTIFY_API_KEY = 'your-notify-app-api-key'; // Replace with your Notify.app API key
+
         let currentRating = 0;
         let visitorCount = 0;
         let fontSize = 1;
@@ -1080,7 +1086,6 @@
             }
         }
 
-        // Hamburger Menu Toggle
         function toggleDropdown() {
             try {
                 const hamburger = document.getElementById('hamburgerMenu');
@@ -1156,6 +1161,7 @@
             try {
                 navigator.clipboard.writeText(text).then(() => {
                     showCopyNotification();
+                    sendNotification('Account copied', `User copied account: ${text}`);
                 }).catch(err => {
                     console.error('Clipboard API failed:', err);
                     showToast('Failed to copy. Please copy manually: ' + text, true);
@@ -1192,7 +1198,7 @@
             }
         }
 
-        function submitRating(rating) {
+        async function submitRating(rating) {
             try {
                 if (sessionStorage.getItem('hasVoted')) {
                     showToast('You can vote again in a new session.', true);
@@ -1202,23 +1208,52 @@
                     showToast('Invalid rating value.', true);
                     return;
                 }
-                sessionStorage.setItem('hasVoted', 'true');
-                currentRating = rating;
-                updateRatingDisplay();
-                disableRatingInput();
-                showToast('Thank you for your rating!');
+
+                const response = await fetch(`${API_BASE_URL}/ratings`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ rating })
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    sessionStorage.setItem('hasVoted', 'true');
+                    currentRating = rating;
+                    updateRatingDisplay();
+                    disableRatingInput();
+                    showToast('Thank you for your rating!');
+                    sendNotification('New Rating', `User submitted a ${rating}-star rating`);
+                } else {
+                    showToast(result.message || 'Failed to submit rating.', true);
+                }
             } catch (error) {
                 console.error('Error submitting rating:', error);
                 showToast('Failed to submit rating.', true);
             }
         }
 
-        function updateRatingDisplay() {
+        async function fetchRatingData() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/ratings`);
+                const data = await response.json();
+                if (response.ok) {
+                    const { averageRating, totalVotes } = data;
+                    currentRating = averageRating;
+                    updateRatingDisplay(averageRating, totalVotes);
+                } else {
+                    showToast('Failed to fetch rating data.', true);
+                }
+            } catch (error) {
+                console.error('Error fetching rating data:', error);
+                showToast('Failed to fetch rating data.', true);
+            }
+        }
+
+        function updateRatingDisplay(averageRating = 0, totalVotes = 0) {
             try {
                 const ratingText = document.getElementById('averageRating');
                 const ratingStars = document.getElementById('ratingStars');
                 if (!ratingText || !ratingStars) return;
-                ratingText.textContent = currentRating ? `${currentRating.toFixed(1)}/5 (1 vote)` : `0.0/5 (0 votes)`;
+                ratingText.textContent = `${averageRating.toFixed(1)}/5 (${totalVotes} votes)`;
                 ratingText.style.animation = 'pulse 0.5s ease-in-out';
                 setTimeout(() => ratingText.style.animation = '', 500);
                 ratingStars.innerHTML = '';
@@ -1226,7 +1261,7 @@
                     const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
                     star.setAttribute('class', 'rating-star');
                     star.setAttribute('viewBox', '0 0 24 24');
-                    star.setAttribute('fill', i <= currentRating ? 'var(--accent-color)' : 'none');
+                    star.setAttribute('fill', i <= Math.round(averageRating) ? 'var(--accent-color)' : 'none');
                     star.setAttribute('stroke', 'var(--text-secondary)');
                     star.setAttribute('stroke-width', '1.2');
                     star.innerHTML = `<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>`;
@@ -1259,20 +1294,52 @@
             }
         }
 
-        function updateVisitorCount() {
+        async function updateVisitorCount() {
             try {
                 if (!sessionStorage.getItem('visited')) {
                     sessionStorage.setItem('visited', 'true');
-                    visitorCount++;
+                    const response = await fetch(`${API_BASE_URL}/visitors`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ visited: true })
+                    });
+                    const result = await response.json();
+                    if (response.ok) {
+                        visitorCount = result.totalVisitors;
+                    } else {
+                        showToast('Failed to update visitor count.', true);
+                    }
                 }
                 const visitorText = document.getElementById('visitorCount');
                 if (visitorText) {
-                    const sessionVisitors = sessionStorage.getItem('visited') ? '1' : '0';
-                    visitorText.textContent = `Total Visitors: ${visitorCount} | This Session: ${sessionVisitors}`;
+                    const response = await fetch(`${API_BASE_URL}/visitors`);
+                    const data = await response.json();
+                    if (response.ok) {
+                        visitorCount = data.totalVisitors;
+                        const sessionVisitors = sessionStorage.getItem('visited') ? '1' : '0';
+                        visitorText.textContent = `Total Visitors: ${visitorCount} | This Session: ${sessionVisitors}`;
+                    } else {
+                        showToast('Failed to fetch visitor count.', true);
+                    }
                 }
             } catch (error) {
                 console.error('Error updating visitor count:', error);
                 showToast('Failed to track visitors.', true);
+            }
+        }
+
+        async function sendNotification(title, message) {
+            try {
+                await fetch('https://notify.app/api/notifications', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${NOTIFY_API_KEY}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ title, message })
+                });
+            } catch (error) {
+                console.error('Error sending notification:', error);
             }
         }
 
@@ -1291,7 +1358,6 @@
             }
         }
 
-        // Font Size Adjustment
         function adjustFontSize(scale) {
             try {
                 fontSize *= scale;
@@ -1325,11 +1391,11 @@
             try {
                 initializeTheme();
                 document.querySelectorAll('.sidebar-item').forEach((item, index) => {
-                item.style.animationDelay = `${index * 0.1}s`;
-                item.style.opacity = '1';
-                item.style.transform = 'translateY(0)';
+                    item.style.animationDelay = `${index * 0.1}s`;
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
                 });
-                updateRatingDisplay();
+                fetchRatingData();
                 checkRatingStatus();
                 updateVisitorCount();
                 hidePreloader();
@@ -1344,12 +1410,11 @@
             } catch (error) {
                 console.error('Error during DOMContentLoaded:', error);
             }
-            // Set --i dynamically for sidebar-item if it doesn't exist yet
-document.querySelectorAll('.sidebar-item').forEach((item, index) => {
-    if (!item.style.getPropertyValue('--i')) {
-        item.style.setProperty('--i', index.toString());
-    }
-});
+            document.querySelectorAll('.sidebar-item').forEach((item, index) => {
+                if (!item.style.getPropertyValue('--i')) {
+                    item.style.setProperty('--i', index.toString());
+                }
+            });
         });
 
         document.addEventListener('keydown', e => {
