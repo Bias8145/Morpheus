@@ -12,39 +12,40 @@
     <title>A Dedication to Pixel 4 Series</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --bg-primary: linear-gradient(135deg, #FFF5F5 0%, #F9E8E8 50%, #FEE2E2 100%);
-            --bg-secondary: rgba(255, 245, 245, 0.95);
-            --bg-sidebar: transparent;
-            --bg-button: linear-gradient(45deg, #D4B8A5, #F4C4C9);
-            --text-primary: #3A2E2B;
-            --text-secondary: #6B4E4A;
-            --text-light: #FFFFFF;
-            --accent-color: #F4C4C9;
-            --hamburger-bg: rgba(216, 196, 182, 0.85);
-            --card-border: transparent;
-            --contact-bg: rgba(255, 245, 245, 0.9);
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --border-gradient: linear-gradient(45deg, #D4B8A5, #F4C4C9);
+            --bg-primary: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%);
+            --bg-secondary: rgba(30, 30, 30, 0.5);
+            --bg-sidebar: rgba(40, 40, 40, 0.6);
+            --bg-button: linear-gradient(45deg, #2ea043, #4CAF50);
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0bec5;
+            --text-light: #ffffff;
+            --accent-color: #4CAF50;
+            --hamburger-bg: rgba(40, 40, 40, 0.6);
+            --card-border: 1px solid rgba(255, 255, 255, 0.1);
+            --contact-bg: rgba(30, 30, 30, 0.5);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --border-gradient: linear-gradient(45deg, #2ea043, #4CAF50);
+            --blur-amount: 12px;
         }
 
-        [data-theme="dark"] {
-            --bg-primary: linear-gradient(135deg, #3A2E2B 0%, #5A4542 50%, #8A6A72 100%);
-            --bg-secondary: rgba(58, 46, 43, 0.9);
-            --bg-sidebar: transparent;
-            --bg-button: linear-gradient(45deg, #7A5A62, #8A6A72);
-            --text-primary: #FFE6E8;
-            --text-secondary: rgba(255, 230, 232, 0.7);
-            --text-light: #FFFFFF;
-            --accent-color: #8A6A72;
-            --hamburger-bg: rgba(122, 90, 98, 0.85);
-            --card-border: transparent;
-            --contact-bg: rgba(58, 46, 43, 0.9);
-            --shadow-color: rgba(138, 106, 114, 0.08);
-            --border-gradient: linear-gradient(45deg, #7A5A62, #8A6A72);
+        [data-theme="light"] {
+            --bg-primary: linear-gradient(135deg, #e0e0e0 0%, #b8c0d8 50%, #a3bffa 100%);
+            --bg-secondary: rgba(255, 255, 255, 0.5);
+            --bg-sidebar: rgba(240, 240, 240, 0.6);
+            --bg-button: linear-gradient(45deg, #0288D1, #4FC3F7);
+            --text-primary: #1e1e1e;
+            --text-secondary: #455a64;
+            --text-light: #ffffff;
+            --accent-color: #0288D1;
+            --hamburger-bg: rgba(200, 200, 200, 0.6);
+            --card-border: 1px solid rgba(0, 0, 0, 0.1);
+            --contact-bg: rgba(255, 255, 255, 0.5);
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --border-gradient: linear-gradient(45deg, #0288D1, #4FC3F7);
         }
 
         * {
@@ -54,40 +55,55 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Quicksand', sans-serif;
             background: var(--bg-primary);
             min-height: 100vh;
-            line-height: 1.7;
+            line-height: 1.6;
             overflow-x: hidden;
             color: var(--text-primary);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            perspective: 1000px;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
+            background: var(--bg-secondary);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border-radius: 16px;
+            box-shadow: 0 8px 16px var(--shadow-color), 0 4px 8px var(--shadow-color);
+            transform: translateZ(10px);
             position: relative;
+            z-index: 1;
+            opacity: 1;
         }
 
-        /* Hamburger Menu Styles */
+        /* Hamburger Menu */
         .hamburger-menu {
             position: fixed;
             top: 20px;
             right: 20px;
             z-index: 1000;
             background: var(--hamburger-bg);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
             border: none;
-            border-radius: 12px;
+            border-radius: 50%;
             padding: 12px;
             cursor: pointer;
             box-shadow: 0 3px 6px var(--shadow-color);
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
         }
 
         .hamburger-menu:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 24px var(--shadow-color);
+            transform: translateZ(5px) scale(1.05);
+            background: var(--accent-color);
+        }
+
+        .hamburger-menu:active {
+            filter: brightness(0.8); /* Warna lebih gelap saat diklik */
         }
 
         .hamburger-menu span {
@@ -118,13 +134,17 @@
             top: -500px;
             right: 20px;
             width: 320px;
-            background: var(--bg-secondary);
+            background: var(--bg-sidebar);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
             z-index: 999;
             transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 10px 30px var(--shadow-color);
-            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow-color), 0 5px 10px var(--shadow-color);
+            border-radius: 16px;
             padding: 20px;
             visibility: hidden;
+            border: var(--card-border);
+            transform: translateZ(15px);
         }
 
         .dropdown.active {
@@ -138,7 +158,6 @@
             gap: 15px;
         }
 
-        /* Dropdown Overlay */
         .dropdown-overlay {
             position: fixed;
             top: 0;
@@ -147,6 +166,7 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
             z-index: 998;
             opacity: 0;
             visibility: hidden;
@@ -158,7 +178,37 @@
             visibility: visible;
         }
 
-        /* Control Panel for Font Size and Theme */
+        /* Support Modal */
+        .support-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            background: var(--bg-sidebar);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border-radius: 16px;
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 8px 16px var(--shadow-color);
+            transform: translate(-50%, -50%) translateZ(15px);
+        }
+
+        .support-modal.active {
+            display: block;
+        }
+
+        .support-modal h3 {
+            margin: 0 0 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        /* Control Panel */
         .control-panel-left {
             position: fixed;
             top: 20px;
@@ -171,6 +221,8 @@
 
         .control-button {
             background: var(--bg-secondary);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
             border: none;
             border-radius: 50%;
             width: 40px;
@@ -181,25 +233,27 @@
             justify-content: center;
             color: var(--text-primary);
             font-size: 1.2rem;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             box-shadow: 0 4px 12px var(--shadow-color);
+            transform: translateZ(5px);
         }
 
         .control-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 16px var(--shadow-color);
+            transform: translateZ(10px) scale(1.05);
             background: var(--accent-color);
             color: var(--text-light);
         }
 
         .control-button:active {
-            animation: bounce 0.3s ease;
+            filter: brightness(0.8); /* Warna lebih gelap saat diklik */
         }
 
         .theme-toggle {
             background: var(--bg-secondary);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
             border: none;
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 10px 14px;
             cursor: pointer;
             color: var(--text-primary);
@@ -209,17 +263,21 @@
             align-items: center;
             gap: 8px;
             box-shadow: 0 3px 6px var(--shadow-color);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
+            transform: translateZ(5px);
         }
 
         .theme-toggle:hover {
+            transform: translateZ(10px) scale(1.05);
             background: var(--accent-color);
             color: var(--text-light);
-            transform: scale(1.03);
-            box-shadow: 0 0 8px var(--accent-color);
         }
 
-        /* Sidebar Items (Reused for Dropdown) */
+        .theme-toggle:active {
+            filter: brightness(0.8); /* Warna lebih gelap saat diklik */
+        }
+
+        /* Sidebar Items */
         .sidebar-section {
             margin-bottom: 30px;
         }
@@ -229,6 +287,7 @@
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
         .sidebar-item {
@@ -238,47 +297,43 @@
             gap: 12px;
             padding: 14px 20px;
             margin-bottom: 10px;
-            background: rgba(234, 219, 200, 0.3);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
+            background: var(--bg-secondary);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: var(--card-border);
+            border-radius: 16px;
             color: var(--text-primary);
             text-decoration: none;
             cursor: pointer;
             font-size: 0.95rem;
             font-weight: 500;
-            width: 100%;
-            text-align: left;
-            box-shadow: 0 3px 6px var(--shadow-color);
+            box-shadow: 0 3px 6px var(--shadow-color), 0 2px 4px var(--shadow-color);
             position: relative;
-            opacity: 0;
-            transform: translateY(10px);
             animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
             animation-delay: calc(var(--i, 0) * 0.1s);
-        }
-
-        [data-theme="dark"] .sidebar-item {
-            background: rgba(74, 59, 56, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateZ(5px);
         }
 
         .sidebar-item:hover {
-            transform: translateY(-2px) scale(1.01);
-            box-shadow: 0 6px 12px var(--shadow-color), 0 0 8px rgba(244, 196, 201, 0.3);
-            background: rgba(244, 196, 201, 0.4);
+            background: var(--accent-color);
             color: var(--text-light);
+            transform: translateZ(10px) translateY(-2px);
         }
 
-        [data-theme="dark"] .sidebar-item:hover {
-            box-shadow: 0 6px 12px var(--shadow-color), 0 0 8px rgba(138, 106, 114, 0.3);
-            background: rgba(138, 106, 114, 0.4);
+        .sidebar-item:active {
+            filter: brightness(0.8); /* Warna lebih gelap saat diklik */
         }
 
         .sidebar-item .icon {
             font-size: 1rem;
-            width: 20px;
-            text-align: center;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px;
         }
 
         .back-button {
@@ -287,21 +342,25 @@
             gap: 8px;
             padding: 12px 16px;
             margin-bottom: 20px;
-            background: rgba(255, 245, 245, 0.3);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
+            background: var(--bg-secondary);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: var(--card-border);
+            border-radius: 16px;
             color: var(--text-primary);
             cursor: pointer;
             font-size: 0.9rem;
             font-weight: 500;
             box-shadow: 0 3px 6px var(--shadow-color);
+            transform: translateZ(5px);
         }
 
-        [data-theme="dark"] .back-button {
-            background: rgba(58, 46, 43, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .back-button:hover {
+            transform: translateZ(10px) translateY(-2px);
+        }
+
+        .back-button:active {
+            filter: brightness(0.8); /* Warna lebih gelap saat diklik */
         }
 
         .sub-menu {
@@ -312,7 +371,7 @@
             display: block;
         }
 
-        /* Preloader and Other Existing Styles */
+        /* Preloader */
         .preloader {
             position: fixed;
             top: 0;
@@ -362,146 +421,65 @@
             50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: scale(1); }
-            40% { transform: scale(1.15); }
-            60% { transform: scale(0.95); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
         @keyframes fadeInUp {
             0% { opacity: 0; transform: translateY(15px); }
-            100% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 1; transform: translateY(0) translateZ(5px); }
         }
 
-        .bouncy {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .bouncy:hover {
-            transform: translateY(-2px) scale(1.01);
-        }
-
-        .bouncy:active {
-            animation: bounce 0.3s ease;
-        }
-
-        /* Hero and Other Sections */
-        .hero {
-            text-align: center;
-            background: var(--bg-secondary);
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: var(--bg-button);
+            color: var(--text-light);
             border: none;
-            border-radius: 20px;
-            padding: 60px 40px;
-            box-shadow: 0 8px 16px var(--shadow-color);
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(15px);
-            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            z-index: 1;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -10%;
-            left: -10%;
-            width: 120%;
-            height: 120%;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(245, 230, 235, 0.05) 50%,
-                transparent 100%
-            );
-            filter: blur(8px);
-            animation: gradient-shift 8s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        @keyframes gradient-shift {
-            0% { transform: translateX(-15%); opacity: 0.3; }
-            50% { transform: translateX(15%); opacity: 0.6; }
-            100% { transform: translateX(-15%); opacity: 0.3; }
-        }
-
-        .hero-title {
-            color: var(--text-primary);
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: 0.015em;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 25px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .developers, .rom-info, .rating-section, .visitor-section {
-            opacity: 0;
-            transform: translateY(15px);
-            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            animation-delay: 0.15s;
-            position: relative;
-            z-index: 1;
-        }
-
-        .developers {
-            color: var(--text-secondary);
+            border-radius: 16px;
             font-size: 1.1rem;
-            font-weight: 500;
-            background: var(--bg-secondary);
-            padding: 20px;
-            border: none;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 3px 6px var(--shadow-color);
-        }
-
-        .rom-info {
-            background: var(--bg-secondary);
-            border: none;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 3px 6px var(--shadow-color);
-        }
-
-        .rom-info h3 {
-            color: var(--text-primary);
-            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 8px 16px var(--shadow-color);
+            transform: translateZ(10px);
         }
 
-        .rom-info p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            font-weight: 400;
-            margin-bottom: 6px;
+        .cta-button:hover {
+            transform: translateZ(15px) translateY(-2px);
+            background: var(--accent-color);
         }
 
-        .rating-section, .visitor-section {
-            margin: 40px 0;
-            text-align: center;
+        .cta-button:active {
+            filter: brightness(0.8); /* Warna lebih gelap saat diklik */
+        }
+
+        .cta-button .icon {
+            border-radius: 50%;
+            padding: 6px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .star {
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            border-radius: 50%;
+            padding: 6px;
             background: var(--bg-secondary);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 3px 6px var(--shadow-color);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            transition: all 0.3s ease;
+            transform: translateZ(5px);
+            clip-path: circle(50%);
+        }
+
+        .star:hover, .star.selected {
+            transform: translateZ(10px) scale(1.1);
+            background: var(--accent-color);
+            fill: var(--text-light);
+        }
+
+        .star:active {
+            filter: brightness(0.8); /* Warna lebih gelap saat diklik */
         }
 
         .rating-input {
@@ -516,28 +494,6 @@
             opacity: 0.6;
         }
 
-        .star {
-            width: 28px;
-            height: 28px;
-            cursor: pointer;
-            border-radius: 6px;
-            padding: 3px;
-            background: var(--bg-secondary);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .star:hover, .star.selected {
-            transform: scale(1.1);
-            background: var(--accent-color);
-            fill: var(--text-light);
-            box-shadow: 0 0 8px var(--accent-color), 0 0 12px rgba(244, 196, 201, 0.5);
-        }
-
-        .star:active {
-            animation: bounce 0.3s ease;
-        }
-
         .rating-message {
             color: var(--text-secondary);
             font-size: 0.95rem;
@@ -545,7 +501,7 @@
             margin-top: 8px;
             opacity: 0;
             transform: translateY(8px);
-            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
 
         .rating-message.show {
@@ -564,7 +520,6 @@
             font-size: 1.2rem;
             font-weight: 600;
             color: var(--text-primary);
-            animation: pulse 0.5s ease-in-out;
         }
 
         .rating-stars {
@@ -575,9 +530,17 @@
         .rating-star {
             width: 24px;
             height: 24px;
-            border-radius: 5px;
-            padding: 2px;
+            border-radius: 50%;
+            padding: 4px;
             background: var(--bg-secondary);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            clip-path: circle(50%);
+            transform: translateZ(5px);
+        }
+
+        .rating-star:active {
+            filter: brightness(0.8); /* Warna lebih gelap saat diklik */
         }
 
         .visitor-text {
@@ -590,17 +553,17 @@
             position: fixed;
             bottom: 20px;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateZ(10px);
             background: var(--accent-color);
             color: var(--text-light);
             padding: 12px 24px;
-            border-radius: 12px;
+            border-radius: 16px;
             font-size: 0.95rem;
             font-weight: 500;
             z-index: 1001;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             box-shadow: 0 4px 8px var(--shadow-color);
         }
 
@@ -613,45 +576,21 @@
             background: #e57373;
         }
 
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 32px;
-            background: var(--bg-button);
-            color: var(--text-light);
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            box-shadow: 0 8px 16px var(--shadow-color);
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px) scale(1.01);
-            box-shadow: 0 10px 20px var(--shadow-color), 0 0 8px var(--accent-color);
-            background: var(--accent-color);
-        }
-
         .copy-notification {
             position: fixed;
             top: 20px;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateZ(10px);
             background: var(--accent-color);
             color: var(--text-light);
             padding: 12px 24px;
-            border-radius: 12px;
+            border-radius: 16px;
             font-size: 0.9rem;
             font-weight: 500;
             z-index: 1001;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
 
         .copy-notification.show {
@@ -661,12 +600,13 @@
 
         .footer {
             background: var(--bg-sidebar);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: var(--card-border);
             padding: 20px 0;
             margin-top: 40px;
-            border-radius: 12px 12px 0 0;
+            border-radius: 16px 16px 0 0;
+            transform: translateZ(5px);
         }
 
         .footer-content {
@@ -693,6 +633,77 @@
         .footer-link {
             color: var(--text-primary);
             font-size: 1rem;
+            border-radius: 50%;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            transform: translateZ(5px);
+        }
+
+        .footer-link:hover {
+            transform: translateZ(10px) scale(1.05);
+            background: var(--accent-color);
+        }
+
+        .footer-link:active {
+            filter: brightness(0.8); /* Warna lebih gelap saat diklik */
+        }
+
+        /* Hero and Card Sections */
+        .hero, .developers, .rom-info, .rating-section, .visitor-section {
+            text-align: center;
+            background: var(--bg-secondary);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: var(--card-border);
+            border-radius: 16px;
+            padding: 60px 40px;
+            box-shadow: 0 8px 16px var(--shadow-color), 0 4px 8px var(--shadow-color);
+            position: relative;
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            transform: translateZ(10px);
+            margin-bottom: 20px;
+        }
+
+        .developers, .rom-info, .rating-section, .visitor-section {
+            padding: 20px;
+            transform: translateZ(5px);
+        }
+
+        .hero:hover, .developers:hover, .rom-info:hover, .rating-section:hover, .visitor-section:hover {
+            transform: translateZ(15px) translateY(-5px);
+        }
+
+        .hero-title {
+            color: var(--text-primary);
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .rom-info h3 {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .rom-info p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 6px;
         }
 
         /* Responsive Design */
@@ -701,7 +712,7 @@
                 padding: 25px 15px;
             }
 
-            .hero {
+            .hero, .developers, .rom-info, .rating-section, .visitor-section {
                 padding: 50px 30px;
             }
 
@@ -713,7 +724,7 @@
                 font-size: 1.1rem;
             }
 
-            .dropdown {
+            .dropdown, .support-modal {
                 width: 300px;
                 right: 15px;
             }
@@ -747,10 +758,6 @@
             .visitor-text {
                 font-size: 1rem;
             }
-
-            .sidebar-item .icon, .footer-link {
-                font-size: 0.9rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -762,7 +769,7 @@
                 font-size: 1rem;
             }
 
-            .dropdown {
+            .dropdown, .support-modal {
                 width: 85vw;
                 right: 5%;
             }
@@ -801,31 +808,28 @@
             .rating-message {
                 font-size: 0.85rem;
             }
-
-            .sidebar-item .icon, .footer-link {
-                font-size: 0.85rem;
-            }
         }
 
         @media (hover: none) {
-            .hamburger-menu:hover, .control-button:hover, .theme-toggle:hover, .bouncy:hover {
-                transform: none;
+            .hamburger-menu:hover, .control-button:hover, .theme-toggle:hover, .sidebar-item:hover, .footer-link:hover {
+                transform: translateZ(5px);
                 box-shadow: none;
             }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .star, .rating-text, .toast, .bouncy {
+            .star, .rating-text, .toast, .sidebar-item, .footer-link {
                 animation: none;
                 transition: none;
             }
         }
 
-        @supports not (backdrop-filter: blur(8px)) {
-            .dropdown, .back-button, .sidebar-item {
+        @supports not (backdrop-filter: blur(var(--blur-amount))) {
+            .container, .hero, .developers, .rom-info, .rating-section, .visitor-section, .dropdown, .sidebar-item, .back-button, .control-button, .theme-toggle, .rating-star, .footer, .support-modal {
                 background: var(--bg-secondary);
+                backdrop-filter: none;
             }
-            [data-theme="dark"] .dropdown, [data-theme="dark"] .back-button, [data-theme="dark"] .sidebar-item {
+            [data-theme="light"] .container, [data-theme="light"] .hero, [data-theme="light"] .developers, [data-theme="light"] .rom-info, [data-theme="light"] .rating-section, [data-theme="light"] .visitor-section, [data-theme="light"] .dropdown, [data-theme="light"] .sidebar-item, [data-theme="light"] .back-button, [data-theme="light"] .control-button, [data-theme="light"] .theme-toggle, [data-theme="light"] .rating-star, [data-theme="light"] .footer, [data-theme="light"] .support-modal {
                 background: var(--bg-secondary);
             }
         }
@@ -841,43 +845,40 @@
         </div>
     </div>
 
-    <!-- Hamburger Menu -->
-    <button class="hamburger-menu bouncy" id="hamburgerMenu" aria-label="Toggle Menu">
+    <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle Menu">
         <span></span>
         <span></span>
         <span></span>
     </button>
 
-    <!-- Control Panel -->
     <div class="control-panel-left">
-        <button class="theme-toggle bouncy" aria-label="Toggle Theme" onclick="toggleTheme()">
-            <i class="fas fa-sun" aria-hidden="true"></i> <span id="theme-text">Light</span>
+        <button class="theme-toggle" aria-label="Toggle Theme" onclick="toggleTheme()">
+            <i class="fas fa-sun icon" aria-hidden="true"></i> <span id="theme-text">Light</span>
         </button>
-        <button class="control-button bouncy" onclick="adjustFontSize(1.1)" aria-label="Increase Font Size">
-            <i class="fas fa-plus"></i>
+        <button class="control-button" onclick="adjustFontSize(1.1)" aria-label="Increase Font Size">
+            <i class="fas fa-plus icon"></i>
         </button>
-        <button class="control-button bouncy" onclick="adjustFontSize(0.9)" aria-label="Decrease Font Size">
-            <i class="fas fa-minus"></i>
+        <button class="control-button" onclick="adjustFontSize(0.9)" aria-label="Decrease Font Size">
+            <i class="fas fa-minus icon"></i>
         </button>
     </div>
 
-    <!-- Dropdown Panel -->
     <div class="dropdown" id="dropdown">
         <div class="dropdown-content">
             <div class="main-menu">
                 <div class="sidebar-section">
                     <h3 class="sidebar-title">Menu</h3>
-                    <button class="sidebar-item bouncy" onclick="showSubMenu('support')" aria-label="View Support Options" style="--i: 0;">
+                    <button class="sidebar-item" onclick="showSubMenu('support')" aria-label="View Support Options" style="--i: 0;">
                         <span class="icon"><i class="fas fa-heart" aria-hidden="true"></i></span>
                         <span>Support</span>
                         <span style="margin-left: auto;"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="showSubMenu('community')" aria-label="Join Community" style="--i: 1;">
+                    <button class="sidebar-item" onclick="showSubMenu('community')" aria-label="Join Community" style="--i: 1;">
                         <span class="icon"><i class="fas fa-users" aria-hidden="true"></i></span>
                         <span>Community</span>
                         <span style="margin-left: auto;"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="showSubMenu('khaliq')" aria-label="About Khaliq" style="--i: 2;">
+                    <button class="sidebar-item" onclick="showSubMenu('khaliq')" aria-label="About Khaliq" style="--i: 2;">
                         <span class="icon"><i class="fas fa-code" aria-hidden="true"></i></span>
                         <span>About Khaliq</span>
                         <span style="margin-left: auto;"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
@@ -885,76 +886,76 @@
                 </div>
             </div>
             <div class="sub-menu" id="support-menu">
-                <button class="back-button bouncy" onclick="showMainMenu()" aria-label="Back to Main Menu">
-                    <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Menu
+                <button class="back-button" onclick="showMainMenu()" aria-label="Back to Main Menu">
+                    <i class="fas fa-arrow-left icon" aria-hidden="true"></i> Back to Menu
                 </button>
                 <div class="sidebar-section">
                     <h3 class="sidebar-title">Support Development</h3>
-                    <button class="sidebar-item bouncy" onclick="openLink('https://ko-fi.com/khaliq99')" aria-label="Support via Ko-fi" style="--i: 0;">
+                    <button class="sidebar-item" onclick="openLink('https://ko-fi.com/khaliq99')" aria-label="Support via Ko-fi" style="--i: 0;">
                         <span class="icon"><i class="fas fa-coffee" aria-hidden="true"></i></span>
                         <span>Buy me a Coffee</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="openLink('https://www.paypal.com/paypalme/khaliq8145')" aria-label="Support via PayPal" style="--i: 1;">
+                    <button class="sidebar-item" onclick="openLink('https://www.paypal.com/paypalme/khaliq8145')" aria-label="Support via PayPal" style="--i: 1;">
                         <span class="icon"><i class="fab fa-paypal" aria-hidden="true"></i></span>
                         <span>PayPal</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="openLink('https://saweria.co/Khaliq99')" aria-label="Support via Saweria" style="--i: 2;">
+                    <button class="sidebar-item" onclick="openLink('https://saweria.co/Khaliq99')" aria-label="Support via Saweria" style="--i: 2;">
                         <span class="icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></span>
                         <span>Saweria</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="copyToClipboard('901390271248')" aria-label="Copy SeaBank Account" style="--i: 4;">
+                    <button class="sidebar-item" onclick="copyToClipboard('901390271248')" aria-label="Copy Mandiri Bank Account" style="--i: 3;">
                         <span class="icon"><i class="fas fa-university" aria-hidden="true"></i></span>
                         <span>Mandiri Bank</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="copyToClipboard('901390271248')" aria-label="Copy SeaBank Account" style="--i: 4;">
+                    <button class="sidebar-item" onclick="copyToClipboard('901390271248')" aria-label="Copy SeaBank Account" style="--i: 4;">
                         <span class="icon"><i class="fas fa-university" aria-hidden="true"></i></span>
                         <span>SeaBank</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="copyToClipboard('082258901971')" aria-label="Copy DANA Account" style="--i: 5;">
+                    <button class="sidebar-item" onclick="copyToClipboard('082258901971')" aria-label="Copy DANA Account" style="--i: 5;">
                         <span class="icon"><i class="fas fa-wallet" aria-hidden="true"></i></span>
                         <span>DANA</span>
                     </button>
                 </div>
             </div>
             <div class="sub-menu" id="community-menu">
-                <button class="back-button bouncy" onclick="showMainMenu()" aria-label="Back to Main Menu">
-                    <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Menu
+                <button class="back-button" onclick="showMainMenu()" aria-label="Back to Main Menu">
+                    <i class="fas fa-arrow-left icon" aria-hidden="true"></i> Back to Menu
                 </button>
                 <div class="sidebar-section">
                     <h3 class="sidebar-title">Community & Support</h3>
-                    <button class="sidebar-item bouncy" onclick="openLink('https://t.me/pixel4seriesupdates')" aria-label="Join Main Support Channel" style="--i: 0;">
+                    <button class="sidebar-item" onclick="openLink('https://t.me/pixel4seriesupdates')" aria-label="Join Main Support Channel" style="--i: 0;">
                         <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                         <span>Main Support Channel</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="openLink('https://t.me/anocroooot')" aria-label="Join Morpheus Build Channel" style="--i: 1;">
+                    <button class="sidebar-item" onclick="openLink('https://t.me/anocroooot')" aria-label="Join Morpheus Build Channel" style="--i: 1;">
                         <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                         <span>Morpheus Build Channel</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="openLink('https://t.me/roshan_0746')" aria-label="Join Sunfish Support Channel" style="--i: 2;">
+                    <button class="sidebar-item" onclick="openLink('https://t.me/roshan_0746')" aria-label="Join Sunfish Support Channel" style="--i: 2;">
                         <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                         <span>Sunfish Support Channel</span>
                     </button>
                 </div>
             </div>
             <div class="sub-menu" id="khaliq-menu">
-                <button class="back-button bouncy" onclick="showMainMenu()" aria-label="Back to Main Menu">
-                    <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Menu
+                <button class="back-button" onclick="showMainMenu()" aria-label="Back to Main Menu">
+                    <i class="fas fa-arrow-left icon" aria-hidden="true"></i> Back to Menu
                 </button>
                 <div class="sidebar-section">
-                    <h3 class="sidebar-title">About Khaliq's</h3>
-                    <button class="sidebar-item bouncy" onclick="openLink('mailto:bias.khaliq@gmail.com')" aria-label="Email Khaliq" style="--i: 0;">
+                    <h3 class="sidebar-title">About Khaliq</h3>
+                    <button class="sidebar-item" onclick="openLink('mailto:bias.khaliq@gmail.com')" aria-label="Email Khaliq" style="--i: 0;">
                         <span class="icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
                         <span>Email</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="openLink('https://t.me/VOLD_NAMESPACE')" aria-label="Contact Khaliq on Telegram" style="--i: 1;">
+                    <button class="sidebar-item" onclick="openLink('https://t.me/VOLD_NAMESPACE')" aria-label="Contact Khaliq on Telegram" style="--i: 1;">
                         <span class="icon"><i class="fab fa-telegram" aria-hidden="true"></i></span>
                         <span>Telegram</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="openLink('https://github.com/Bias8145')" aria-label="Visit Khaliq's GitHub" style="--i: 2;">
+                    <button class="sidebar-item" onclick="openLink('https://github.com/Bias8145')" aria-label="Visit Khaliq's GitHub" style="--i: 2;">
                         <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span>
                         <span>GitHub</span>
                     </button>
-                    <button class="sidebar-item bouncy" onclick="openLink('https://khaliq-resume.netlify.app')" aria-label="View Khaliq's Resume" style="--i: 3;">
+                    <button class="sidebar-item" onclick="openLink('https://khaliq-resume.netlify.app')" aria-label="View Khaliq's Resume" style="--i: 3;">
                         <span class="icon"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
                         <span>Resume</span>
                     </button>
@@ -963,8 +964,39 @@
         </div>
     </div>
 
-        <!-- Dropdown Overlay -->
     <div class="dropdown-overlay" onclick="closeDropdown()"></div>
+
+    <div class="support-modal" id="support-modal">
+        <h3 class="sidebar-title">Support Development</h3>
+        <button class="sidebar-item" onclick="openLink('https://ko-fi.com/khaliq99')" aria-label="Support via Ko-fi" style="--i: 0;">
+            <span class="icon"><i class="fas fa-coffee" aria-hidden="true"></i></span>
+            <span>Buy me a Coffee</span>
+        </button>
+        <button class="sidebar-item" onclick="openLink('https://www.paypal.com/paypalme/khaliq8145')" aria-label="Support via PayPal" style="--i: 1;">
+            <span class="icon"><i class="fab fa-paypal" aria-hidden="true"></i></span>
+            <span>PayPal</span>
+        </button>
+        <button class="sidebar-item" onclick="openLink('https://saweria.co/Khaliq99')" aria-label="Support via Saweria" style="--i: 2;">
+            <span class="icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></span>
+            <span>Saweria</span>
+        </button>
+        <button class="sidebar-item" onclick="copyToClipboard('901390271248')" aria-label="Copy Mandiri Bank Account" style="--i: 3;">
+            <span class="icon"><i class="fas fa-university" aria-hidden="true"></i></span>
+            <span>Mandiri Bank</span>
+        </button>
+        <button class="sidebar-item" onclick="copyToClipboard('901390271248')" aria-label="Copy SeaBank Account" style="--i: 4;">
+            <span class="icon"><i class="fas fa-university" aria-hidden="true"></i></span>
+            <span>SeaBank</span>
+        </button>
+        <button class="sidebar-item" onclick="copyToClipboard('082258901971')" aria-label="Copy DANA Account" style="--i: 5;">
+            <span class="icon"><i class="fas fa-wallet" aria-hidden="true"></i></span>
+            <span>DANA</span>
+        </button>
+        <button class="sidebar-item" onclick="closeSupportModal()" aria-label="Close Support Modal" style="--i: 6;">
+            <span class="icon"><i class="fas fa-times" aria-hidden="true"></i></span>
+            <span>Close</span>
+        </button>
+    </div>
 
     <div class="container">
         <div class="hero">
@@ -985,19 +1017,19 @@
             <div class="rating-section">
                 <h3>Community Satisfaction Rating</h3>
                 <div class="rating-input" id="ratingInput">
-                    <svg class="star bouncy" data-value="1" onclick="submitRating(1)" viewBox="0 0 24 24" aria-label="Rate ROM 1 star">
+                    <svg class="star" data-value="1" onclick="submitRating(1)" viewBox="0 0 24 24" aria-label="Rate ROM 1 star">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
-                    <svg class="star bouncy" data-value="2" onclick="submitRating(2)" viewBox="0 0 24 24" aria-label="Rate ROM 2 stars">
+                    <svg class="star" data-value="2" onclick="submitRating(2)" viewBox="0 0 24 24" aria-label="Rate ROM 2 stars">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
-                    <svg class="star bouncy" data-value="3" onclick="submitRating(3)" viewBox="0 0 24 24" aria-label="Rate ROM 3 stars">
+                    <svg class="star" data-value="3" onclick="submitRating(3)" viewBox="0 0 24 24" aria-label="Rate ROM 3 stars">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
-                    <svg class="star bouncy" data-value="4" onclick="submitRating(4)" viewBox="0 0 24 24" aria-label="Rate ROM 4 stars">
+                    <svg class="star" data-value="4" onclick="submitRating(4)" viewBox="0 0 24 24" aria-label="Rate ROM 4 stars">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
-                    <svg class="star bouncy" data-value="5" onclick="submitRating(5)" viewBox="0 0 24 24" aria-label="Rate ROM 5 stars">
+                    <svg class="star" data-value="5" onclick="submitRating(5)" viewBox="0 0 24 24" aria-label="Rate ROM 5 stars">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
                 </div>
@@ -1013,8 +1045,8 @@
                     <span class="visitor-text" id="visitorCount">Total Visitors: 0 | This Session: 0</span>
                 </div>
             </div>
-            <button class="cta-button bouncy" onclick="showSupportMenu()" aria-label="Support Development">
-                <span><i class="fas fa-heart" aria-hidden="true"></i></span>
+            <button class="cta-button" onclick="showSupportModal()" aria-label="Support Development">
+                <span class="icon"><i class="fas fa-heart" aria-hidden="true"></i></span>
                 <span>Support Development</span>
             </button>
         </div>
@@ -1027,18 +1059,14 @@
             <div class="footer-content">
                 <p>© 2025 Khaliq as Morpheus. All rights reserved.</p>
                 <div class="footer-links">
-                    <a href="https://t.me/VOLD_NAMESPACE" class="footer-link bouncy" aria-label="Telegram" rel="noopener noreferrer"><i class="fab fa-telegram" aria-hidden="true"></i></a>
-                    <a href="https://github.com/Bias8145" class="footer-link bouncy" aria-label="GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="https://t.me/VOLD_NAMESPACE" class="footer-link" aria-label="Telegram" rel="noopener noreferrer"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                    <a href="https://github.com/Bias8145" class="footer-link" aria-label="GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Replace with your backend API URL after deployment
-        const API_BASE_URL = 'https://your-backend-url.com/api'; // Update this with your deployed backend URL
-        const NOTIFY_API_KEY = 'your-notify-app-api-key'; // Replace with your Notify.app API key
-
         let currentRating = 0;
         let visitorCount = 0;
         let fontSize = 1;
@@ -1077,7 +1105,7 @@
                 const themeIcon = document.querySelector('.theme-toggle i');
                 if (!themeText || !themeIcon) return;
                 themeText.textContent = theme === 'dark' ? 'Dark' : 'Light';
-                themeIcon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+                themeIcon.className = theme === 'dark' ? 'fas fa-moon icon' : 'fas fa-sun icon';
             } catch (error) {
                 console.error('Error updating theme button:', error);
             }
@@ -1136,12 +1164,27 @@
             }
         }
 
-        function showSupportMenu() {
+        function showSupportModal() {
             try {
-                toggleDropdown();
-                setTimeout(() => showSubMenu('support'), 300);
+                const modal = document.getElementById('support-modal');
+                const overlay = document.querySelector('.dropdown-overlay');
+                if (!modal || !overlay) return;
+                modal.classList.add('active');
+                overlay.classList.add('active');
             } catch (error) {
-                console.error('Error showing support menu:', error);
+                console.error('Error showing support modal:', error);
+            }
+        }
+
+        function closeSupportModal() {
+            try {
+                const modal = document.getElementById('support-modal');
+                const overlay = document.querySelector('.dropdown-overlay');
+                if (!modal || !overlay) return;
+                modal.classList.remove('active');
+                overlay.classList.remove('active');
+            } catch (error) {
+                console.error('Error closing support modal:', error);
             }
         }
 
@@ -1158,7 +1201,6 @@
             try {
                 navigator.clipboard.writeText(text).then(() => {
                     showCopyNotification();
-                    sendNotification('Account copied', `User copied account: ${text}`);
                 }).catch(err => {
                     console.error('Clipboard API failed:', err);
                     showToast('Failed to copy. Please copy manually: ' + text, true);
@@ -1195,7 +1237,7 @@
             }
         }
 
-        async function submitRating(rating) {
+        function submitRating(rating) {
             try {
                 if (sessionStorage.getItem('hasVoted')) {
                     showToast('You can vote again in a new session.', true);
@@ -1205,40 +1247,20 @@
                     showToast('Invalid rating value.', true);
                     return;
                 }
-
-                const response = await fetch(`${API_BASE_URL}/ratings`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ rating })
-                });
-                const result = await response.json();
-                if (response.ok) {
-                    sessionStorage.setItem('hasVoted', 'true');
-                    currentRating = rating;
-                    updateRatingDisplay();
-                    disableRatingInput();
-                    showToast('Thank you for your rating!');
-                    sendNotification('New Rating', `User submitted a ${rating}-star rating`);
-                } else {
-                    showToast(result.message || 'Failed to submit rating.', true);
-                }
+                sessionStorage.setItem('hasVoted', 'true');
+                currentRating = rating;
+                updateRatingDisplay(rating, 100); // Dummy total votes
+                disableRatingInput();
+                showToast('Thank you for your rating!');
             } catch (error) {
                 console.error('Error submitting rating:', error);
                 showToast('Failed to submit rating.', true);
             }
         }
 
-        async function fetchRatingData() {
+        function fetchRatingData() {
             try {
-                const response = await fetch(`${API_BASE_URL}/ratings`);
-                const data = await response.json();
-                if (response.ok) {
-                    const { averageRating, totalVotes } = data;
-                    currentRating = averageRating;
-                    updateRatingDisplay(averageRating, totalVotes);
-                } else {
-                    showToast('Failed to fetch rating data.', true);
-                }
+                updateRatingDisplay(4.5, 100); // Dummy data
             } catch (error) {
                 console.error('Error fetching rating data:', error);
                 showToast('Failed to fetch rating data.', true);
@@ -1291,33 +1313,11 @@
             }
         }
 
-        async function updateVisitorCount() {
+        function updateVisitorCount() {
             try {
-                if (!sessionStorage.getItem('visited')) {
-                    sessionStorage.setItem('visited', 'true');
-                    const response = await fetch(`${API_BASE_URL}/visitors`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ visited: true })
-                    });
-                    const result = await response.json();
-                    if (response.ok) {
-                        visitorCount = result.totalVisitors;
-                    } else {
-                        showToast('Failed to update visitor count.', true);
-                    }
-                }
                 const visitorText = document.getElementById('visitorCount');
                 if (visitorText) {
-                    const response = await fetch(`${API_BASE_URL}/visitors`);
-                    const data = await response.json();
-                    if (response.ok) {
-                        visitorCount = data.totalVisitors;
-                        const sessionVisitors = sessionStorage.getItem('visited') ? '1' : '0';
-                        visitorText.textContent = `Total Visitors: ${visitorCount} | This Session: ${sessionVisitors}`;
-                    } else {
-                        showToast('Failed to fetch visitor count.', true);
-                    }
+                    visitorText.textContent = `Total Visitors: 100 | This Session: 1`; // Dummy data
                 }
             } catch (error) {
                 console.error('Error updating visitor count:', error);
@@ -1325,31 +1325,19 @@
             }
         }
 
-        async function sendNotification(title, message) {
-            try {
-                await fetch('https://notify.app/api/notifications', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${NOTIFY_API_KEY}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ title, message })
-                });
-            } catch (error) {
-                console.error('Error sending notification:', error);
-            }
-        }
-
         function hidePreloader() {
             try {
+                console.log('Attempting to hide preloader');
                 const preloader = document.querySelector('.preloader');
-                if (!preloader) return;
-                window.addEventListener('load', () => {
-                    setTimeout(() => {
-                        preloader.classList.add('hidden');
-                        setTimeout(() => preloader.remove(), 300);
-                    }, 300);
-                });
+                if (!preloader) {
+                    console.error('Preloader not found');
+                    return;
+                }
+                setTimeout(() => {
+                    console.log('Hiding preloader');
+                    preloader.classList.add('hidden');
+                    setTimeout(() => preloader.remove(), 300);
+                }, 1000);
             } catch (error) {
                 console.error('Error hiding preloader:', error);
             }
@@ -1365,37 +1353,19 @@
             }
         }
 
-        document.querySelectorAll('.bouncy').forEach(element => {
-            element.addEventListener('click', () => {
-                element.style.animation = 'bounce 0.3s ease';
-                setTimeout(() => {
-                    element.style.animation = '';
-                }, 300);
-            });
-        });
-
-        document.querySelectorAll('.star').forEach(star => {
-            star.addEventListener('keydown', e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    const rating = parseInt(star.getAttribute('data-value'));
-                    submitRating(rating);
-                }
-            });
-        });
-
         document.addEventListener('DOMContentLoaded', () => {
             try {
+                console.log('DOM fully loaded');
                 initializeTheme();
+                hidePreloader();
                 document.querySelectorAll('.sidebar-item').forEach((item, index) => {
                     item.style.animationDelay = `${index * 0.1}s`;
                     item.style.opacity = '1';
-                    item.style.transform = 'translateY(0)';
+                    item.style.transform = 'translateY(0) translateZ(5px)';
                 });
                 fetchRatingData();
                 checkRatingStatus();
                 updateVisitorCount();
-                hidePreloader();
                 const dropdown = document.getElementById('dropdown');
                 const overlay = document.querySelector('.dropdown-overlay');
                 const hamburger = document.getElementById('hamburgerMenu');
@@ -1406,20 +1376,17 @@
                 }
             } catch (error) {
                 console.error('Error during DOMContentLoaded:', error);
+                hidePreloader(); // Pastikan preloader hilang meskipun ada error
             }
-            document.querySelectorAll('.sidebar-item').forEach((item, index) => {
-                if (!item.style.getPropertyValue('--i')) {
-                    item.style.setProperty('--i', index.toString());
-                }
-            });
         });
 
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') {
                 closeDropdown();
+                closeSupportModal();
             }
         });
-
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', e => {
                 e.preventDefault();
